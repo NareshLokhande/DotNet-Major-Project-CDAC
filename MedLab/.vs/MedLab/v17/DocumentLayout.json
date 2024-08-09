@@ -1,7 +1,24 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\data\\majormedlabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\data\\majormedlabcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +26,60 @@
       "DocumentGroups": [
         {
           "DockedWidth": 103,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "MedLab\\Properties\\launchSettings.json",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Properties\\launchSettings.json",
+              "RelativeToolTip": "MedLab\\Properties\\launchSettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-08T22:27:23.602Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Program.cs",
+              "RelativeDocumentMoniker": "MedLab\\Program.cs",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Program.cs",
+              "RelativeToolTip": "MedLab\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAABIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T21:28:01.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MajorMedLabContext.cs",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Data\\MajorMedLabContext.cs",
+              "RelativeDocumentMoniker": "MedLab\\Data\\MajorMedLabContext.cs",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Data\\MajorMedLabContext.cs",
+              "RelativeToolTip": "MedLab\\Data\\MajorMedLabContext.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAuwBUAAABGAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-08T21:26:12.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\appsettings.json",
+              "RelativeDocumentMoniker": "MedLab\\appsettings.json",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\appsettings.json",
+              "RelativeToolTip": "MedLab\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-08-08T21:00:28.618Z",
+              "EditorCaption": ""
             }
           ]
         }
