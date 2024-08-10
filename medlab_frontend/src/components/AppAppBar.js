@@ -15,6 +15,8 @@ import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import ToggleColorMode from "./ToggleColorMode";
 
 import MedLab from "./MedLabIcon";
+import { LOGIN_ROUTE, REGISTER_ROUTE } from "../constants/AppRoutes";
+import { Link } from "react-router-dom";
 
 function AppAppBar({ mode, toggleColorMode }) {
   const [open, setOpen] = React.useState(false);
@@ -97,7 +99,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                 size="small"
                 onClick={() => scrollToSection("homeVisits")}
               >
-                Features
+                Home Visits
               </Button>
               <Button
                 variant="text"
@@ -154,10 +156,17 @@ function AppAppBar({ mode, toggleColorMode }) {
               mode={mode}
               toggleColorMode={toggleColorMode}
             />
-            <Button color="primary" variant="text" size="small">
+            <Button color="primary" variant="text" size="small" component={Link} to={LOGIN_ROUTE}>
               Sign in
             </Button>
-            <Button color="primary" variant="contained" size="small">
+
+            <Button
+              color="primary"
+              variant="contained"
+              size="small"
+              component={Link}
+              to={REGISTER_ROUTE}
+            >
               Sign up
             </Button>
           </Box>
@@ -207,6 +216,7 @@ function AppAppBar({ mode, toggleColorMode }) {
                   Pricing
                 </MenuItem>
                 <MenuItem onClick={() => scrollToSection("faq")}>FAQ</MenuItem>
+
                 <MenuItem>
                   <Button color="primary" variant="contained" fullWidth>
                     Sign up
