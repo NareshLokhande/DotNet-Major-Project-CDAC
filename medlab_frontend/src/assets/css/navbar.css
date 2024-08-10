@@ -1,0 +1,69 @@
+/* Ensure header is fixed at the top */
+.header {
+    position: fixed; /* Fixed positioning */
+    top: 0; /* At the top of the page */
+    left: 0; /* Align to the left */
+    width: 100%; /* Full width of the page */
+    background-color: #333; /* Background color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding inside the header */
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    z-index: 1000; /* Ensure it is above other content */
+    box-sizing: border-box; /* Include padding and border in width and height */
+}
+
+/* Style for the logo */
+.logo {
+    height: 40px; /* Adjust as needed */
+}
+
+/* Style for navigation links */
+.nav {
+    display: flex; /* Flexbox for horizontal alignment */
+    gap: 20px; /* Space between links */
+}
+
+.nav-link {
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+}
+
+/* Style for the logout button */
+.logout-button {
+    background-color: #ff4d4d; /* Red background */
+    border: none; /* Remove border */
+    color: white; /* Text color */
+    padding: 5px 10px; /* Padding inside button */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Adjust font size for better readability */
+}
+
+.logout-button:hover {
+    background-color: #e60000; /* Darker red on hover */
+}
+
+/* Add padding to body to avoid content overlap */
+body {
+    margin: 0; /* Remove default margin */
+    padding-top: 60px; /* Adjust based on header height */
+    box-sizing: border-box; /* Include padding and border in width and height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .nav {
+        flex-direction: column; /* Stack navigation links vertically */
+        gap: 10px; /* Reduce space between links */
+    }
+
+    .logout-button {
+        margin-top: 10px; /* Add space above logout button */
+    }
+}

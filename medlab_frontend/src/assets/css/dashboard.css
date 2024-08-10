@@ -1,0 +1,30 @@
+/* Basic reset and body styling */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+/* Container for Dashboard Page */
+.dashboard-container {
+    padding-top: 60px; /* Ensure content is below fixed header */
+    min-height: calc(100vh - 60px); /* Full height minus header height */
+}
+
+/* Main content styling */
+.dashboard-content {
+    padding: 20px;
+    max-width: 1200px; /* Maximum width for readability */
+    margin: 0 auto; /* Center content horizontally */
+}
+
+.dashboard-content h2 {
+    margin-top: 20px; /* Space above each heading */
+    margin-bottom: 10px; /* Space below each heading */
+}
+
+.dashboard-content p {
+    margin-top: 20px; /* Space above each paragraph */
+}
