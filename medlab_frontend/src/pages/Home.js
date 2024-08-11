@@ -12,12 +12,11 @@ import Features from "../components/Features";
 import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
-import getMPTheme from "./getMPTheme";
+import getHomeTheme from "./getHomeTheme";
 
-
-export default function MarketingPage() {
+export default function Home() {
   const [mode, setMode] = React.useState("light");
-  const MPTheme = createTheme(getMPTheme(mode));
+  const MPTheme = createTheme(getHomeTheme(mode));
 
   const toggleColorMode = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));

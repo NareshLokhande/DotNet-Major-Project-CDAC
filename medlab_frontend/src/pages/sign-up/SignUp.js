@@ -17,9 +17,9 @@ import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
 import getSignUpTheme from './getSignUpTheme';
-import ToggleColorMode from './../components/ToggleColorMode';
-import { HOME_ROUTE, LOGIN_ROUTE } from '../constants/AppRoutes';
-import MedLabIcon, { GoogleIcon } from '../components/MedLabIcon';
+import ToggleColorMode from '../../components/ToggleColorMode';
+import { HOME_ROUTE, LOGIN_ROUTE } from '../../constants/AppRoutes';
+import MedLabIcon, { GoogleIcon } from '../../components/MedLabIcon';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',

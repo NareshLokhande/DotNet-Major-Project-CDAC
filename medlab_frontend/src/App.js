@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, SUPPORT_ROUTE, USER_DASHBOARD_ROUTE } from "./constants/AppRoutes";
+
 // import { useAuth } from "./pages/Authorization"; // Import useAuth hook
 // import Login from "./pages/Login";
 // import UserDashboard from "./pages/UserDashboard"
@@ -8,11 +9,11 @@ import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE, SUPPORT_ROUTE, USER_DASHBOARD_
 // import Register from "./pages/Register";
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
-// import Home from "./pages/Home";
+import Home from "./pages/Home";
 // import AppAppBar from "./components/AppAppBar";
-// import Register from "./sign-up/SignUp";
-// import Login from "./sign-in-side/SignInSide";
-import Blog from "./blog/Blog";
+import Register from "./pages/sign-up/SignUp";
+import Login from "./pages/sign-in-side/SignInSide";
+// import Blog from "./blog/Blog";
 // import CheckOut from "./checkout/Checkout";
 // import dashboard from "./dashboard/Dashboard";
 
@@ -23,10 +24,10 @@ function App() {
     <BrowserRouter>
       {/* <AppAppBar /> */}
       <Routes>
-        {/* <Route path={HOME_ROUTE} element={<Home />} />
+        <Route path={HOME_ROUTE} element={<Home />} />
         <Route path={LOGIN_ROUTE} element={<Login />} />
-        <Route path={REGISTER_ROUTE} element={<Register />} /> */}
-        <Route path={HOME_ROUTE} element={<Blog />} />
+        <Route path={REGISTER_ROUTE} element={<Register />} />
+        {/* <Route path={HOME_ROUTE} element={<Blog />} /> */}
         {/* <Route path={HOME_ROUTE} element={<pricing />} /> */}
 
         {/* <Route

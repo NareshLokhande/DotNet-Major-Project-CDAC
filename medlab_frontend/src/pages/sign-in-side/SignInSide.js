@@ -7,10 +7,10 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
 import getSignInSideTheme from './getSignInSideTheme';
-import ToggleColorMode from './../components/ToggleColorMode';
+import ToggleColorMode from '../../components/ToggleColorMode';
 import SignInCard from './SignInCard';
 import Content from './Content';
-import { HOME_ROUTE } from '../constants/AppRoutes';
+import { HOME_ROUTE } from '../../constants/AppRoutes';
 
 export default function SignInSide() {
   const [mode, setMode] = React.useState('light');

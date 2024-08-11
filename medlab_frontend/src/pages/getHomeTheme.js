@@ -198,7 +198,7 @@ const getDesignTokens = (mode) => ({
   },
 });
 
-export default function getMPTheme(mode) {
+export default function getHomeTheme(mode) {
   return {
     ...getDesignTokens(mode),
     components: {

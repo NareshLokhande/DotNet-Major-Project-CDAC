@@ -15,8 +15,8 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 import ForgotPassword from './ForgotPassword';
-import MedLabIcon, { GoogleIcon } from '../components/MedLabIcon';
-import { REGISTER_ROUTE } from '../constants/AppRoutes';
+import MedLabIcon, { GoogleIcon } from '../../components/MedLabIcon';
+import { REGISTER_ROUTE } from '../../constants/AppRoutes';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
