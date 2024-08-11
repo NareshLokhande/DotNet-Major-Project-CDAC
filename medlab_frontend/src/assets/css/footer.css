@@ -1,0 +1,71 @@
+/* Footer.css */
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 64px 0;
+  text-align: left;
+}
+
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 60%;
+}
+
+.medlab-icon {
+  width: 60%;
+}
+
+.newsletter-title {
+  font-weight: 600;
+  margin-top: 16px;
+}
+
+.newsletter-description {
+  margin-bottom: 16px;
+  color: #777;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 8px;
+}
+
+.footer-links {
+  display: none;
+}
+
+.footer-links-title {
+  font-weight: medium;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 64px;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+.footer-bottom-links {
+  display: inline;
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.social-links {
+  display: flex;
+  gap: 8px;
+  color: #777;
+}

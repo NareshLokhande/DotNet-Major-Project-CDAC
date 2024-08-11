@@ -1,0 +1,127 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.box {
+  background-color: hsl(0, 0%, 100%); 
+}
+
+/* Button Styles */
+button {
+  border-radius: 12px; 
+  box-shadow: none;
+  text-transform: none;
+  transition: all 100ms ease;
+}
+
+button:focus-visible {
+  outline: 3px solid hsla(210, 98%, 42%, 0.5); /* Adjust based on theme */
+  outline-offset: 2px;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+button.contained {
+  background-color: hsl(210, 98%, 42%); /* Adjust based on theme */
+  color: hsl(210, 100%, 97%); /* Adjust based on theme */
+}
+
+button.contained:hover {
+  background-color: hsl(210, 98%, 55%); 
+}
+
+button.contained:active {
+  background-color: hsl(210, 100%, 35%); 
+}
+
+button.outlined {
+  color: hsl(210, 98%, 42%); 
+  border: 1px solid hsl(210, 98%, 42%); 
+}
+
+button.outlined:hover {
+  background-color: hsla(210, 98%, 42%, 0.1);
+}
+
+button.outlined:active {
+  background-color: hsla(210, 98%, 42%, 0.2);
+}
+
+button.text {
+  color: hsl(210, 98%, 42%); 
+}
+
+button.text:hover {
+  background-color: hsla(210, 98%, 42%, 0.1); 
+}
+
+button.text:active {
+  background-color: hsla(210, 98%, 42%, 0.2); 
+}
+
+/* Chip Styles */
+.chip {
+  border-radius: 12px; 
+  box-shadow: none;
+  height: 40px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.chip .deleteIcon {
+  color: hsl(220, 20%, 42%); 
+}
+
+.chip.outlined {
+  border: 1px solid hsl(220, 20%, 65%);
+  color: hsl(220, 20%, 42%); 
+}
+
+.chip.outlined .deleteIcon {
+  color: hsl(220, 20%, 42%); 
+}
+
+.chip.outlined .deleteIcon:hover {
+  color: hsl(220, 20%, 35%); 
+}
+
+/* Card Styles */
+.card {
+  border-radius: 12px; 
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
+  padding: 24px;
+}
+
+/* Accordion Styles */
+.accordion {
+  padding: 8px;
+  overflow: clip;
+  background-color: hsl(0, 0%, 100%); 
+  border: 1px solid hsl(220, 35%, 88%); 
+}
+
+.accordion:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.accordion:last-of-type {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.accordionSummary {
+  border: none;
+  border-radius: 8px;
+}
+
+.accordionSummary:hover {
+  background-color: hsl(220, 35%, 94%); 
+}
+
+.accordionDetails {
+  margin-bottom: 20px;
+  border: none;
+}

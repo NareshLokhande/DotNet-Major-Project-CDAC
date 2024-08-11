@@ -1,3 +1,152 @@
+// import * as React from "react";
+// import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
+// import Container from "@mui/material/Container";
+// import IconButton from "@mui/material/IconButton";
+// import InputLabel from "@mui/material/InputLabel";
+// import Link from "@mui/material/Link";
+// import Stack from "@mui/material/Stack";
+// import TextField from "@mui/material/TextField";
+// import Typography from "@mui/material/Typography";
+// import { visuallyHidden } from "@mui/utils";
+// import FacebookIcon from "@mui/icons-material/GitHub";
+// import LinkedInIcon from "@mui/icons-material/LinkedIn";
+// import TwitterIcon from "@mui/icons-material/X";
+// import "./../assets/css/footer.css";
+// import MedLabIcon from "./MedLabIcon";
+
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" sx={{ color: "text.secondary", mt: 1 }}>
+//       {"Copyright © "}
+//       <Link href="">MedLab&nbsp;</Link>
+//       {new Date().getFullYear()}
+//     </Typography>
+//   );
+// }
+
+// export default function Footer() {
+//   return (
+//     <Container className="footer-container">
+//       <Box className="footer-top">
+//         <Box className="footer-section">
+//           <MedLabIcon className="medlab-icon" />
+//           <Typography variant="body2" gutterBottom className="newsletter-title">
+//             Join the newsletter
+//           </Typography>
+//           <Typography variant="body2" className="newsletter-description">
+//             Subscribe for weekly updates. No spams ever!
+//           </Typography>
+//           <Stack direction="row" className="newsletter-form">
+//             <InputLabel htmlFor="email-newsletter" sx={visuallyHidden}>
+//               Email
+//             </InputLabel>
+//             <TextField
+//               id="email-newsletter"
+//               hiddenLabel
+//               size="small"
+//               variant="outlined"
+//               fullWidth
+//               aria-label="Enter your email address"
+//               placeholder="Your email address"
+//             />
+//             <Button variant="contained" color="primary" sx={{ flexShrink: 0 }}>
+//               Subscribe
+//             </Button>
+//           </Stack>
+//         </Box>
+
+//         <Box className="footer-links">
+//           <Typography variant="body2" className="footer-links-title">
+//             Product
+//           </Typography>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Features
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Testimonials
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Highlights
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Pricing
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             FAQs
+//           </Link>
+//         </Box>
+
+//         <Box className="footer-links">
+//           <Typography variant="body2" className="footer-links-title">
+//             Company
+//           </Typography>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             About us
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Careers
+//           </Link>
+//         </Box>
+//         <Box className="footer-links">
+//           <Typography variant="body2" className="footer-links-title">
+//             Legal
+//           </Typography>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Terms
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Privacy
+//           </Link>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Contact
+//           </Link>
+//         </Box>
+//       </Box>
+
+//       <Box className="footer-bottom">
+//         <div>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Privacy Policy
+//           </Link>
+//           <Typography className="footer-bottom-links">&nbsp;•&nbsp;</Typography>
+//           <Link color="text.secondary" variant="body2" href="#">
+//             Terms of Service
+//           </Link>
+//           <Copyright />
+//         </div>
+
+//         <Stack direction="row" className="social-links">
+//           <IconButton
+//             color="inherit"
+//             href="https://github.com/Nareshlokhande"
+//             aria-label="GitHub"
+//             sx={{ alignSelf: "center" }}
+//           >
+//             <FacebookIcon />
+//           </IconButton>
+//           <IconButton
+//             color="inherit"
+//             href="https://x.com/Nareshlokhande_"
+//             aria-label="X"
+//             sx={{ alignSelf: "center" }}
+//           >
+//             <TwitterIcon />
+//           </IconButton>
+//           <IconButton
+//             color="inherit"
+//             href="https://www.linkedin.com/in/Nareshlokhande/"
+//             aria-label="LinkedIn"
+//             sx={{ alignSelf: "center" }}
+//           >
+//             <LinkedInIcon />
+//           </IconButton>
+//         </Stack>
+//       </Box>
+//     </Container>
+//   );
+// }
+
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -15,7 +164,7 @@ import FacebookIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/X';
 
-import SitemarkIcon from './MedLabIcon';
+import MedLabIcon from './MedLabIcon';
 
 function Copyright() {
   return (
@@ -56,7 +205,7 @@ export default function Footer() {
           }}
         >
           <Box sx={{ width: { xs: "100%", sm: "60%" } }}>
-            <SitemarkIcon />
+            <MedLabIcon />
             <Typography
               variant="body2"
               gutterBottom
@@ -139,26 +288,14 @@ export default function Footer() {
             Careers
           </Link>
         </Box>
+        
         <Box
           sx={{
             display: { xs: "none", sm: "flex" },
             flexDirection: "column",
             gap: 1,
           }}
-        >
-          <Typography variant="body2" sx={{ fontWeight: "medium" }}>
-            Legal
-          </Typography>
-          <Link color="text.secondary" variant="body2" href="#">
-            Terms
-          </Link>
-          <Link color="text.secondary" variant="body2" href="#">
-            Privacy
-          </Link>
-          <Link color="text.secondary" variant="body2" href="#">
-            Contact
-          </Link>
-        </Box>
+        />
       </Box>
       <Box
         sx={{

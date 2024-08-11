@@ -13,21 +13,18 @@ import Testimonials from "../components/Testimonials";
 import FAQ from "../components/FAQ";
 import Footer from "../components/Footer";
 import getHomeTheme from "./getHomeTheme";
+import './../assets/css/Home.css';
 
 export default function Home() {
-  const [mode, setMode] = React.useState("light");
-  const MPTheme = createTheme(getHomeTheme(mode));
-
-  const toggleColorMode = () => {
-    setMode((prev) => (prev === "dark" ? "light" : "dark"));
-  };
+  const mode = "light";
+  const HomeTheme = createTheme(getHomeTheme(mode));
 
   return (
-    <ThemeProvider theme={MPTheme}>
+    <ThemeProvider theme={HomeTheme}>
       <CssBaseline />
-      <AppAppBar mode={mode} toggleColorMode={toggleColorMode} />
+      <AppAppBar />
       <Hero />
-      <Box sx={{ bgcolor: "background.default" }}>
+      <Box className="box">
         <LogoCollection />
         <Features />
         <Divider />
