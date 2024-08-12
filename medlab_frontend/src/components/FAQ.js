@@ -3,7 +3,6 @@ import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -33,7 +32,7 @@ export default function FAQ() {
             className="faq-accordion-summary"
           >
             <Typography component="h3" variant="subtitle2">
-              How do I contact customer support if I have a question or issue?
+              How can I schedule an appointment for a lab test?
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="faq-accordion-details">
@@ -42,10 +41,10 @@ export default function FAQ() {
               gutterBottom
               className="faq-accordion-content"
             >
-              You can reach our customer support team by emailing
-              <Link> support@email.com </Link>
-              or calling our toll-free number. We&apos;re here to assist you
-              promptly.
+              To schedule an appointment for a lab test, please visit our
+              website or contact our scheduling office . You can choose a
+              convenient time slot and provide necessary information for your
+              visit.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -60,7 +59,7 @@ export default function FAQ() {
             className="faq-accordion-summary"
           >
             <Typography component="h3" variant="subtitle2">
-              Can I return the product if it doesn&apos;t meet my expectations?
+              What should I bring with me to my lab appointment?
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="faq-accordion-details">
@@ -69,9 +68,9 @@ export default function FAQ() {
               gutterBottom
               className="faq-accordion-content"
             >
-              Absolutely! We offer a hassle-free return policy. If you&apos;re
-              not completely satisfied, you can return the product within
-              [number of days] days for a full refund or exchange.
+              Please bring a valid ID, your insurance information, and any
+              required referral documents. If you have specific instructions
+              from your physician, make sure to bring those as well.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -86,7 +85,7 @@ export default function FAQ() {
             className="faq-accordion-summary"
           >
             <Typography component="h3" variant="subtitle2">
-              What makes your product stand out from others in the market?
+              How long will it take to receive my test results?
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="faq-accordion-details">
@@ -95,10 +94,9 @@ export default function FAQ() {
               gutterBottom
               className="faq-accordion-content"
             >
-              Our product distinguishes itself through its adaptability,
-              durability, and innovative features. We prioritize user
-              satisfaction and continually strive to exceed expectations in
-              every aspect.
+              Test results are typically available within some days. You will be
+              notified via email or phone call once your results are ready. If
+              you have any urgent concerns, please contact us directly.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -113,7 +111,7 @@ export default function FAQ() {
             className="faq-accordion-summary"
           >
             <Typography component="h3" variant="subtitle2">
-              Is there a warranty on the product, and what does it cover?
+              What should I do if I have questions about my test results?
             </Typography>
           </AccordionSummary>
           <AccordionDetails className="faq-accordion-details">
@@ -122,10 +120,9 @@ export default function FAQ() {
               gutterBottom
               className="faq-accordion-content"
             >
-              Yes, our product comes with a [length of warranty] warranty. It
-              covers defects in materials and workmanship. If you encounter any
-              issues covered by the warranty, please contact our customer
-              support for assistance.
+              If you have questions or need clarification about your test
+              results, please contact your healthcare provider. For additional
+              assistance, you can reach out to our support team.
             </Typography>
           </AccordionDetails>
         </Accordion>

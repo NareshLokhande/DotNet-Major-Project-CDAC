@@ -1,5 +1,4 @@
 import * as React from "react";
-
 import Box from "@mui/material/Box";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,16 +10,53 @@ import MenuItem from "@mui/material/MenuItem";
 import Drawer from "@mui/material/Drawer";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import SearchIcon from "@mui/icons-material/Search";
+import InputBase from "@mui/material/InputBase";
+import { alpha } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import MedLab from "./MedLabIcon";
 import { LOGIN_ROUTE, REGISTER_ROUTE } from "../constants/AppRoutes";
 
-function AppAppBar() {
+function Navbar() {
   const [open, setOpen] = React.useState(false);
+  const [searchOpen, setSearchOpen] = React.useState(false);
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState([]);
+  const [isSearching, setIsSearching] = React.useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
+  };
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+    setSearchTerm("");
+    setSearchResults([]);
+  };
+
+  const handleSearchChange = (event) => {
+    const query = event.target.value;
+    setSearchTerm(query);
+    if (query.trim() !== "") {
+      setIsSearching(true);
+      fetchSearchResults(query);
+    } else {
+      setIsSearching(false);
+      setSearchResults([]);
+    }
+  };
+
+  const fetchSearchResults = async (query) => {
+    try {
+      const response = await axios.get(`/api/search-tests?q=${query}`);
+      setSearchResults(response.data);
+      setIsSearching(false);
+    } catch (error) {
+      console.error("Error fetching search results:", error);
+      setIsSearching(false);
+    }
   };
 
   const scrollToSection = (sectionId) => {
@@ -142,8 +178,80 @@ function AppAppBar() {
               display: { xs: "none", md: "flex" },
               gap: 0.5,
               alignItems: "center",
+              position: "relative",
             }}
           >
+            {searchOpen ? (
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  bgcolor: alpha("#fff", 0.8),
+                  borderRadius: "4px",
+                  p: "4px 8px",
+                  width: "300px",
+                }}
+              >
+                <InputBase
+                  sx={{ ml: 1, flex: 1 }}
+                  placeholder="Search tests"
+                  inputProps={{ "aria-label": "search tests" }}
+                  value={searchTerm}
+                  onChange={handleSearchChange}
+                  autoFocus
+                />
+                <IconButton sx={{ p: "10px" }} onClick={toggleSearch}>
+                  <CloseRoundedIcon />
+                </IconButton>
+              </Box>
+            ) : (
+              <IconButton aria-label="search" onClick={toggleSearch}>
+                <SearchIcon />
+              </IconButton>
+            )}
+
+            {isSearching && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  right: 0,
+                  bgcolor: "background.paper",
+                  borderRadius: "4px",
+                  boxShadow: 3,
+                  zIndex: 1000,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  p: 1,
+                }}
+              >
+                <Box>Loading...</Box>
+              </Box>
+            )}
+
+            {searchResults.length > 0 && !isSearching && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: "100%",
+                  left: 0,
+                  right: 0,
+                  bgcolor: "background.paper",
+                  borderRadius: "4px",
+                  boxShadow: 3,
+                  zIndex: 1000,
+                }}
+              >
+                {searchResults.map((result, index) => (
+                  <MenuItem key={index} sx={{ color: "black" }}>
+                    {result}
+                  </MenuItem>
+                ))}
+              </Box>
+            )}
+
             <Button
               color="primary"
               variant="text"
@@ -164,6 +272,7 @@ function AppAppBar() {
               Sign up
             </Button>
           </Box>
+
           <Box sx={{ display: { sm: "flex", md: "none" } }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
               <MenuIcon />
@@ -226,11 +335,10 @@ function AppAppBar() {
   );
 }
 
-export default AppAppBar;
-
+export default Navbar;
 
 // import * as React from "react";
-// import PropTypes from "prop-types";
+// import axios from "axios";
 
 // import Box from "@mui/material/Box";
 // import AppBar from "@mui/material/AppBar";
@@ -243,19 +351,54 @@ export default AppAppBar;
 // import Drawer from "@mui/material/Drawer";
 // import MenuIcon from "@mui/icons-material/Menu";
 // import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-// import ToggleColorMode from "./ToggleColorMode";
+// import SearchIcon from "@mui/icons-material/Search"; // Import Search icon
+// import InputBase from "@mui/material/InputBase"; // Import InputBase for search field
+// import { alpha } from "@mui/material/styles"; // Import alpha for styling
+// import { Link } from "react-router-dom";
 
 // import MedLab from "./MedLabIcon";
 // import { LOGIN_ROUTE, REGISTER_ROUTE } from "../constants/AppRoutes";
-// import { Link } from "react-router-dom";
 
-// function AppAppBar({ mode, toggleColorMode }) {
+// function Navbar() {
 //   const [open, setOpen] = React.useState(false);
+//   const [searchOpen, setSearchOpen] = React.useState(false);
+//   const [searchTerm, setSearchTerm] = React.useState("");
+//   const [searchResults, setSearchResults] = React.useState([]);
+//   const [isSearching, setIsSearching] = React.useState(false);
 
 //   const toggleDrawer = (newOpen) => () => {
 //     setOpen(newOpen);
 //   };
 
+//   const toggleSearch = () => {
+//     setSearchOpen(!searchOpen);
+//     setSearchTerm("");
+//     setSearchResults([]);
+//   };
+
+//   const handleSearchChange = (event) => {
+//     const query = event.target.value;
+//     setSearchTerm(query);
+//     if (query.trim() !== "") {
+//       setIsSearching(true);
+//       fetchSearchResults(query);
+//     } else {
+//       setIsSearching(false);
+//       setSearchResults([]);
+//     }
+//   };
+
+//   // Calling from api
+//   const fetchSearchResults = async (query) => {
+//     try {
+//       const response = await axios.get(`/api/search-tests?q=${query}`);
+//       setSearchResults(response.data);
+//     } catch (error) {
+//       console.error("Error fetching search results:", error);
+//     }
+//   };
+
+//   //scrolling effect of sections
 //   const scrollToSection = (sectionId) => {
 //     const sectionElement = document.getElementById(sectionId);
 //     const offset = 128;
@@ -283,7 +426,7 @@ export default AppAppBar;
 //       <Container maxWidth="lg">
 //         <Toolbar
 //           variant="regular"
-//           sx={(theme) => ({
+//           sx={{
 //             display: "flex",
 //             alignItems: "center",
 //             justifyContent: "space-between",
@@ -296,12 +439,7 @@ export default AppAppBar;
 //             bgcolor: "hsla(220, 60%, 99%, 0.6)",
 //             boxShadow:
 //               "0 1px 2px hsla(210, 0%, 0%, 0.05), 0 2px 12px hsla(210, 100%, 80%, 0.5)",
-//             ...theme.applyStyles("dark", {
-//               bgcolor: "hsla(220, 0%, 0%, 0.7)",
-//               boxShadow:
-//                 "0 1px 2px hsla(210, 0%, 0%, 0.5), 0 2px 12px hsla(210, 100%, 25%, 0.3)",
-//             }),
-//           })}
+//           }}
 //         >
 //           <Box
 //             sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
@@ -380,14 +518,67 @@ export default AppAppBar;
 //               display: { xs: "none", md: "flex" },
 //               gap: 0.5,
 //               alignItems: "center",
+//               //display: "flex",
+//               position: "relative",
 //             }}
 //           >
-//             <ToggleColorMode
-//               data-screenshot="toggle-mode"
-//               mode={mode}
-//               toggleColorMode={toggleColorMode}
-//             />
-//             <Button color="primary" variant="text" size="small" component={Link} to={LOGIN_ROUTE}>
+//             {searchOpen ? (
+//               <Box
+//                 sx={{
+//                   display: "flex",
+//                   alignItems: "center",
+//                   bgcolor: alpha("#fff", 0.8),
+//                   borderRadius: "4px",
+//                   p: "4px 8px",
+//                   width: "300px",
+//                 }}
+//               >
+//                 <InputBase
+//                   sx={{ ml: 1, flex: 1 }}
+//                   placeholder="Search tests"
+//                   inputProps={{ "aria-label": "search tests" }}
+//                   value={searchTerm}
+//                   onChange={handleSearchchange}
+//                   autoFocus
+//                 />
+//                 <IconButton sx={{ p: "10px" }} onClick={toggleSearch}>
+//                   <CloseRoundedIcon />
+//                 </IconButton>
+//               </Box>
+//             ) : (
+//               <IconButton aria-label="search" onClick={toggleSearch}>
+//                 <SearchIcon />
+//               </IconButton>
+//             )}
+
+//             {searchResults.length > 0 && (
+//               <Box
+//                 sx={{
+//                   position: "absolute",
+//                   top: "100%",
+//                   left: 0,
+//                   right: 0,
+//                   bgcolor: "background.paper",
+//                   borderRadius: "4px",
+//                   boxShadow: 3,
+//                   zIndex: 1000,
+//                 }}
+//               >
+//                 {searchResults.map((result, index) => (
+//                   <MenuItem key={index} sx={{ color: "black" }}>
+//                     {result}
+//                   </MenuItem>
+//                 ))}
+//               </Box>
+//             )}
+
+//             <Button
+//               color="primary"
+//               variant="text"
+//               size="small"
+//               component={Link}
+//               to={LOGIN_ROUTE}
+//             >
 //               Sign in
 //             </Button>
 
@@ -401,6 +592,7 @@ export default AppAppBar;
 //               Sign up
 //             </Button>
 //           </Box>
+
 //           <Box sx={{ display: { sm: "flex", md: "none" } }}>
 //             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
 //               <MenuIcon />
@@ -415,10 +607,6 @@ export default AppAppBar;
 //                     justifyContent: "space-between",
 //                   }}
 //                 >
-//                   <ToggleColorMode
-//                     mode={mode}
-//                     toggleColorMode={toggleColorMode}
-//                   />
 //                   <IconButton onClick={toggleDrawer(false)}>
 //                     <CloseRoundedIcon />
 //                   </IconButton>
@@ -428,10 +616,10 @@ export default AppAppBar;
 //                 <MenuItem onClick={() => scrollToSection("features")}>
 //                   Features
 //                 </MenuItem>
-//                 <MenuItem onClick={() => scrollToSection("test")}>
+//                 <MenuItem onClick={() => scrollToSection("tests")}>
 //                   Tests
 //                 </MenuItem>
-//                 <MenuItem onClick={() => scrollToSection("homevisits")}>
+//                 <MenuItem onClick={() => scrollToSection("homeVisits")}>
 //                   Home Visits
 //                 </MenuItem>
 //                 <MenuItem onClick={() => scrollToSection("Rx_Upload")}>
@@ -467,9 +655,4 @@ export default AppAppBar;
 //   );
 // }
 
-// AppAppBar.propTypes = {
-//   mode: PropTypes.oneOf(["dark", "light"]).isRequired,
-//   toggleColorMode: PropTypes.func.isRequired,
-// };
-
-// export default AppAppBar;
+// export default Navbar;

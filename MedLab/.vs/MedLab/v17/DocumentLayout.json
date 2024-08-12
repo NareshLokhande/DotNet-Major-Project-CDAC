@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\dot net project\\medlab\\medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{0878133F-1F4B-4817-B63D-7EF29BBA5837}|MedLab\\MedLab.csproj|solutionrelative:medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 103,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +38,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Dockerfile",
+              "RelativeDocumentMoniker": "MedLab\\Dockerfile",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Dockerfile",
+              "RelativeToolTip": "MedLab\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-08-12T10:20:10.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "launchSettings.json",
               "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "MedLab\\Properties\\launchSettings.json",
@@ -46,7 +63,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Program.cs",
               "RelativeDocumentMoniker": "MedLab\\Program.cs",
@@ -58,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MajorMedLabContext.cs",
               "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\Data\\MajorMedLabContext.cs",
               "RelativeDocumentMoniker": "MedLab\\Data\\MajorMedLabContext.cs",
@@ -70,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "appsettings.json",
               "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Dot Net Project\\MedLab\\MedLab\\appsettings.json",
               "RelativeDocumentMoniker": "MedLab\\appsettings.json",
