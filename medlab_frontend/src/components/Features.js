@@ -1,177 +1,16 @@
-// import React from "react";
-// import Box from "@mui/material/Box";
-// import Button from "@mui/material/Button";
-// import Card from "@mui/material/Card";
-// import Container from "@mui/material/Container";
-// import Grid from "@mui/material/Grid";
-// import Link from "@mui/material/Link";
-// import Stack from "@mui/material/Stack";
-// import Typography from "@mui/material/Typography";
-
-// import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
-// import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
-// import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
-// import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
-
-// import "./../assets/css/feature.css";
-
-// const items = [
-//   {
-//     icon: <ViewQuiltRoundedIcon />,
-//     title: "Dashboard",
-//     description:
-//       "This item could provide a snapshot of the most important metrics or data points related to the product.",
-//     imageLight:
-//       'url("/static/images/templates/templates-images/dash-light.png")',
-//   },
-//   {
-//     icon: <EdgesensorHighRoundedIcon />,
-//     title: "Mobile integration",
-//     description:
-//       "This item could provide information about the mobile app version of the product.",
-//     imageLight:
-//       'url("/static/images/templates/templates-images/mobile-light.png")',
-//   },
-//   {
-//     icon: <DevicesRoundedIcon />,
-//     title: "Available on all platforms",
-//     description:
-//       "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
-//     imageLight:
-//       'url("/static/images/templates/templates-images/devices-light.png")',
-//   },
-// ];
-
-// export default function Features() {
-//   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
-
-//   const handleItemClick = (index) => {
-//     setSelectedItemIndex(index);
-//   };
-
-//   const selectedFeature = items[selectedItemIndex];
-
-//   return (
-//     <Container id="features" className="container">
-//       <Grid container spacing={6}>
-//         <Grid item xs={12} md={6}>
-//           <div>
-//             <Typography component="h2" variant="h4" className="title">
-//               Product features
-//             </Typography>
-//             <Typography variant="body1" className="description">
-//               Provide a brief overview of the key features of the product. For
-//               example, you could list the number of features, their types or
-//               benefits, and add-ons.
-//             </Typography>
-//           </div>
-//           <Grid container item className="grid-item">
-//             {items.map(({ title }, index) => (
-//               <Button
-//                 key={index}
-//                 onClick={() => handleItemClick(index)}
-//                 className={
-//                   selectedItemIndex === index ? "stack-card-selected" : ""
-//                 }
-//               >
-//                 {title}
-//               </Button>
-//             ))}
-//           </Grid>
-//           <Card variant="outlined" className="card">
-//             <Box
-//               className="card-image"
-//               style={{
-//                 backgroundImage: items[selectedItemIndex].imageLight,
-//               }}
-//             />
-//             <Box className="card-content">
-//               <Typography gutterBottom className="card-title">
-//                 {selectedFeature.title}
-//               </Typography>
-//               <Typography variant="body2" className="card-description">
-//                 {selectedFeature.description}
-//               </Typography>
-//               <Link className="learn-more-link">
-//                 <span>Learn more</span>
-//                 <ChevronRightRoundedIcon
-//                   fontSize="small"
-//                   className="learn-more-icon"
-//                 />
-//               </Link>
-//             </Box>
-//           </Card>
-//           <Stack direction="column" spacing={2} className="stack">
-//             {items.map(({ icon, title, description }, index) => (
-//               <Card
-//                 key={index}
-//                 component={Button}
-//                 onClick={() => handleItemClick(index)}
-//                 className={`stack-card ${
-//                   selectedItemIndex === index ? "stack-card-selected" : ""
-//                 }`}
-//               >
-//                 <Box
-//                   className={`stack-card-icon ${
-//                     selectedItemIndex === index
-//                       ? "stack-card-icon-selected"
-//                       : ""
-//                   }`}
-//                 >
-//                   {icon}
-//                 </Box>
-//                 <div>
-//                   <Typography gutterBottom className="stack-card-title">
-//                     {title}
-//                   </Typography>
-//                   <Typography
-//                     variant="body2"
-//                     className="stack-card-description"
-//                   >
-//                     {description}
-//                   </Typography>
-//                   <Link
-//                     className="learn-more-link"
-//                     onClick={(event) => {
-//                       event.stopPropagation();
-//                     }}
-//                   >
-//                     <span>Learn more</span>
-//                     <ChevronRightRoundedIcon
-//                       fontSize="small"
-//                       className="learn-more-icon"
-//                     />
-//                   </Link>
-//                 </div>
-//               </Card>
-//             ))}
-//           </Stack>
-//         </Grid>
-//         <Grid item xs={12} md={6} className="grid-item">
-//           <Card variant="outlined" className="card">
-//             <Box
-//               className="card-image"
-//               style={{
-//                 backgroundImage: items[selectedItemIndex].imageLight,
-//               }}
-//             />
-//           </Card>
-//         </Grid>
-//       </Grid>
-//     </Container>
-//   );
-// }
-
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Grid,
+  Link,
+  Stack,
+  Typography,
+} from "@mui/material";
+
 import MuiChip from "@mui/material/Chip";
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
-import Typography from "@mui/material/Typography";
 
 import { styled } from "@mui/material/styles";
 
@@ -433,3 +272,167 @@ export default function Features() {
     </Container>
   );
 }
+
+// import React from "react";
+// import Box from "@mui/material/Box";
+// import Button from "@mui/material/Button";
+// import Card from "@mui/material/Card";
+// import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+// import Link from "@mui/material/Link";
+// import Stack from "@mui/material/Stack";
+// import Typography from "@mui/material/Typography";
+
+// import ChevronRightRoundedIcon from "@mui/icons-material/ChevronRightRounded";
+// import DevicesRoundedIcon from "@mui/icons-material/DevicesRounded";
+// import EdgesensorHighRoundedIcon from "@mui/icons-material/EdgesensorHighRounded";
+// import ViewQuiltRoundedIcon from "@mui/icons-material/ViewQuiltRounded";
+
+// import "./../assets/css/feature.css";
+
+// const items = [
+//   {
+//     icon: <ViewQuiltRoundedIcon />,
+//     title: "Dashboard",
+//     description:
+//       "This item could provide a snapshot of the most important metrics or data points related to the product.",
+//     imageLight:
+//       'url("/static/images/templates/templates-images/dash-light.png")',
+//   },
+//   {
+//     icon: <EdgesensorHighRoundedIcon />,
+//     title: "Mobile integration",
+//     description:
+//       "This item could provide information about the mobile app version of the product.",
+//     imageLight:
+//       'url("/static/images/templates/templates-images/mobile-light.png")',
+//   },
+//   {
+//     icon: <DevicesRoundedIcon />,
+//     title: "Available on all platforms",
+//     description:
+//       "This item could let users know the product is available on all platforms, such as web, mobile, and desktop.",
+//     imageLight:
+//       'url("/static/images/templates/templates-images/devices-light.png")',
+//   },
+// ];
+
+// export default function Features() {
+//   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
+
+//   const handleItemClick = (index) => {
+//     setSelectedItemIndex(index);
+//   };
+
+//   const selectedFeature = items[selectedItemIndex];
+
+//   return (
+//     <Container id="features" className="container">
+//       <Grid container spacing={6}>
+//         <Grid item xs={12} md={6}>
+//           <div>
+//             <Typography component="h2" variant="h4" className="title">
+//               Product features
+//             </Typography>
+//             <Typography variant="body1" className="description">
+//               Provide a brief overview of the key features of the product. For
+//               example, you could list the number of features, their types or
+//               benefits, and add-ons.
+//             </Typography>
+//           </div>
+//           <Grid container item className="grid-item">
+//             {items.map(({ title }, index) => (
+//               <Button
+//                 key={index}
+//                 onClick={() => handleItemClick(index)}
+//                 className={
+//                   selectedItemIndex === index ? "stack-card-selected" : ""
+//                 }
+//               >
+//                 {title}
+//               </Button>
+//             ))}
+//           </Grid>
+//           <Card variant="outlined" className="card">
+//             <Box
+//               className="card-image"
+//               style={{
+//                 backgroundImage: items[selectedItemIndex].imageLight,
+//               }}
+//             />
+//             <Box className="card-content">
+//               <Typography gutterBottom className="card-title">
+//                 {selectedFeature.title}
+//               </Typography>
+//               <Typography variant="body2" className="card-description">
+//                 {selectedFeature.description}
+//               </Typography>
+//               <Link className="learn-more-link">
+//                 <span>Learn more</span>
+//                 <ChevronRightRoundedIcon
+//                   fontSize="small"
+//                   className="learn-more-icon"
+//                 />
+//               </Link>
+//             </Box>
+//           </Card>
+//           <Stack direction="column" spacing={2} className="stack">
+//             {items.map(({ icon, title, description }, index) => (
+//               <Card
+//                 key={index}
+//                 component={Button}
+//                 onClick={() => handleItemClick(index)}
+//                 className={`stack-card ${
+//                   selectedItemIndex === index ? "stack-card-selected" : ""
+//                 }`}
+//               >
+//                 <Box
+//                   className={`stack-card-icon ${
+//                     selectedItemIndex === index
+//                       ? "stack-card-icon-selected"
+//                       : ""
+//                   }`}
+//                 >
+//                   {icon}
+//                 </Box>
+//                 <div>
+//                   <Typography gutterBottom className="stack-card-title">
+//                     {title}
+//                   </Typography>
+//                   <Typography
+//                     variant="body2"
+//                     className="stack-card-description"
+//                   >
+//                     {description}
+//                   </Typography>
+//                   <Link
+//                     className="learn-more-link"
+//                     onClick={(event) => {
+//                       event.stopPropagation();
+//                     }}
+//                   >
+//                     <span>Learn more</span>
+//                     <ChevronRightRoundedIcon
+//                       fontSize="small"
+//                       className="learn-more-icon"
+//                     />
+//                   </Link>
+//                 </div>
+//               </Card>
+//             ))}
+//           </Stack>
+//         </Grid>
+//         <Grid item xs={12} md={6} className="grid-item">
+//           <Card variant="outlined" className="card">
+//             <Box
+//               className="card-image"
+//               style={{
+//                 backgroundImage: items[selectedItemIndex].imageLight,
+//               }}
+//             />
+//           </Card>
+//         </Grid>
+//       </Grid>
+//     </Container>
+//   );
+// }
