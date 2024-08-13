@@ -1,4 +1,4 @@
-@MedLab_HostAddress = http://localhost:5042
+@MedLab_HostAddress = http://localhost:5053
 
 GET {{MedLab_HostAddress}}/weatherforecast/
 Accept: application/json

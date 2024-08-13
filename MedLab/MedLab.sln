@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.10.35122.118
+VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedLab", "MedLab\MedLab.csproj", "{0878133F-1F4B-4817-B63D-7EF29BBA5837}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MedLab", "MedLab\MedLab.csproj", "{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0878133F-1F4B-4817-B63D-7EF29BBA5837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0878133F-1F4B-4817-B63D-7EF29BBA5837}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0878133F-1F4B-4817-B63D-7EF29BBA5837}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0878133F-1F4B-4817-B63D-7EF29BBA5837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {FBEDC3F4-61DE-4841-8C1E-4D8ECFCAD198}
+		SolutionGuid = {4B2DC892-7D62-4D80-845E-1AFAE90C9452}
 	EndGlobalSection
 EndGlobal
