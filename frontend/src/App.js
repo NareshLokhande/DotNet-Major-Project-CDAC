@@ -10,10 +10,10 @@ import { APPOINTMENTS_ROUTE, HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "./c
 // import Navbar from "./components/Navbar";
 // import Footer from "./components/Footer";
 import Home from "./pages/Home";
-// import AppAppBar from "./components/AppAppBar";
+import Navbar from "./components/Navbar";
 import Register from "./pages/sign-up/SignUp";
 import Login from "./pages/sign-in-side/SignInSide";
-import AppointmentBooking from "./pages/AppointmentBooking";
+import AppointmentBooking from "./pages/AppointmentsBooking";
 // import Blog from "./blog/Blog";
 // import CheckOut from "./checkout/Checkout";
 // import dashboard from "./dashboard/Dashboard";
@@ -23,6 +23,7 @@ function App() {
   // const { isAuthenticated } = useAuth();
   return (
     <BrowserRouter>
+    <Navbar/>
       <Routes>
         <Route path={HOME_ROUTE} element={<Home />} />
         <Route path={LOGIN_ROUTE} element={<Login />} />

@@ -20,10 +20,23 @@ namespace MedLab
             
 
             builder.Services.AddDbContext<MedLabDatabaseContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("MedLabDBContext")));
+                options.UseSqlServer(builder.Configuration.GetConnectionString("MedLabDBContext")));
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-           
+
+            // CORS configuration
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigins",
+                    policy =>
+                    {
+                        policy.WithOrigins("http://localhost:3000", "http://localhost:5173") // Add your React app URLs here
+                              .AllowAnyHeader()
+                              .AllowAnyMethod()
+                              .AllowCredentials();
+                    });
+            });
+
             builder.Services.AddAuthorization();
             builder.Services.AddIdentityApiEndpoints<IdentityUser>()
                 .AddEntityFrameworkStores<MedLabDatabaseContext>();
@@ -70,7 +83,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("MedLabDBContext"
             builder.Services.AddControllers();
 
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen();  // Can remove this when not needed 
 
             var app = builder.Build();
 
@@ -86,10 +99,9 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("MedLabDBContext"
             app.UseHttpsRedirection();
             /*app.UseAuthentication();*/
 
-
             app.UseAuthorization();
 
-
+            app.UseCors("AllowSpecificOrigins"); // Apply CORS policy
             app.MapControllers();
 
             app.Run();

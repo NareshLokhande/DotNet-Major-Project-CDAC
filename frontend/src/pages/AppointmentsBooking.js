@@ -5,11 +5,10 @@ import {
   TextField,
   Button,
   Box,
-  Grid,
-  MenuItem,
-  Select,
   FormControl,
   InputLabel,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
@@ -22,11 +21,14 @@ function AppointmentBooking() {
   const [time, setTime] = React.useState("");
   const [tests, setTests] = React.useState([]);
 
+  // Base URL from environment variables
+  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+
   React.useEffect(() => {
     // Fetch available tests when component mounts
     const fetchTests = async () => {
       try {
-        const response = await axios.get("/api/tests");
+        const response = await axios.get(`${apiBaseUrl}/tests`);
         setTests(response.data);
       } catch (error) {
         console.error("Error fetching tests:", error);
@@ -34,17 +36,27 @@ function AppointmentBooking() {
     };
 
     fetchTests();
-  }, []);
+  }, [apiBaseUrl]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    const appointment = {
+      patientName: name, // Use patient name instead of ID
+      testID: test,
+      appointmentDate: `${date}T${time}`,
+      status: "Scheduled",
+      createdBy: "",
+      createdDate: new Date().toISOString(),
+      modifiedBy: "",
+      modifiedDate: new Date().toISOString(),
+    };
+
     try {
-      await axios.post("/api/book-appointment", {
-        name,
-        test,
-        date,
-        time,
+      await axios.post(`${apiBaseUrl}/appointments`, appointment, {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       alert("Appointment booked successfully!");
     } catch (error) {
@@ -54,7 +66,9 @@ function AppointmentBooking() {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 4 }}>
+    <Container maxWidth="sm" sx={{ py: 4, mt: 8 }}>
+      {" "}
+      {/* Add margin-top to create space below the navbar */}
       <Typography variant="h4" component="h1" gutterBottom>
         Book an Appointment
       </Typography>
@@ -69,10 +83,11 @@ function AppointmentBooking() {
           padding: theme.spacing(3),
           borderRadius: theme.shape.borderRadius,
           boxShadow: theme.shadows[3],
+          mt: 4, // Add margin-top to create space between the heading and form
         }}
       >
         <TextField
-          label="Name"
+          label="Patient Name" // Changed from "Patient ID" to "Patient Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
@@ -85,13 +100,13 @@ function AppointmentBooking() {
             label="Test"
           >
             {tests.map((testItem) => (
-              <MenuItem key={testItem.id} value={testItem.name}>
+              <MenuItem key={testItem.id} value={testItem.id}>
                 {testItem.name}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
-        
+
         <TextField
           label="Date"
           type="date"

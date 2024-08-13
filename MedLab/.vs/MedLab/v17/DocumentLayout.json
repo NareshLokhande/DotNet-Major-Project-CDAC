@@ -7,40 +7,19 @@
       "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\data\\medlabdatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\data\\medlabdatabasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\controllers\\testscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\controllers\\testscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\controllers\\appointmentscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\constants\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\constants\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MedLabDatabase/True/SqlTable/dbo.Appointment.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\medlab.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\medlab.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\models\\test.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\data\\migrations\\20240813030431_fixedidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\data\\migrations\\20240813030431_fixedidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\data\\migrations\\20240813025143_fixidentitysetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\data\\migrations\\20240813025143_fixidentitysetup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\data\\migrations\\20240813024259_updatedidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\data\\migrations\\20240813024259_updatedidentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|p:\\naresh\\cdac\\project\\major-project-cdac\\medlab\\medlab\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8B8471D6-ADDE-403D-8DB8-AF19D7B37745}|MedLab\\MedLab.csproj|solutionrelative:medlab\\models\\appointment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,7 +29,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 103,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,27 +37,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "20240813030431_fixedIdentity.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813030431_fixedIdentity.cs",
-              "RelativeDocumentMoniker": "MedLab\\Data\\Migrations\\20240813030431_fixedIdentity.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813030431_fixedIdentity.cs",
-              "RelativeToolTip": "MedLab\\Data\\Migrations\\20240813030431_fixedIdentity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 4,
+              "Title": "Appointment.cs",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\Appointment.cs",
+              "RelativeDocumentMoniker": "MedLab\\Models\\Appointment.cs",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\Appointment.cs",
+              "RelativeToolTip": "MedLab\\Models\\Appointment.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAAwAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T03:04:32.133Z"
+              "WhenOpened": "2024-08-13T12:33:46.131Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "20240813025143_FixIdentitySetup.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813025143_FixIdentitySetup.cs",
-              "RelativeDocumentMoniker": "MedLab\\Data\\Migrations\\20240813025143_FixIdentitySetup.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813025143_FixIdentitySetup.cs",
-              "RelativeToolTip": "MedLab\\Data\\Migrations\\20240813025143_FixIdentitySetup.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 3,
+              "Title": "dbo.Appointment [Data]",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/_localdb__MSSQLLocalDB/MedLabDatabase/True/SqlTable/dbo.Appointment.sql",
+              "ToolTip": "dbo.Appointment [Data]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2024-08-13T12:33:28.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestsController.cs",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Controllers\\TestsController.cs",
+              "RelativeDocumentMoniker": "MedLab\\Controllers\\TestsController.cs",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Controllers\\TestsController.cs",
+              "RelativeToolTip": "MedLab\\Controllers\\TestsController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T02:51:43.316Z"
+              "WhenOpened": "2024-08-13T11:46:39.768Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -88,94 +77,22 @@
               "RelativeDocumentMoniker": "MedLab\\Program.cs",
               "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Program.cs",
               "RelativeToolTip": "MedLab\\Program.cs",
-              "ViewState": "AQIAAEEAAAAAAAAAAAAAAEUAAAAuAAAA",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwBoAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T20:48:33.728Z",
+              "WhenOpened": "2024-08-13T10:46:24.532Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MedLabDatabaseContext.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\MedLabDatabaseContext.cs",
-              "RelativeDocumentMoniker": "MedLab\\Data\\MedLabDatabaseContext.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\MedLabDatabaseContext.cs",
-              "RelativeToolTip": "MedLab\\Data\\MedLabDatabaseContext.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAAA3wCEAAAA5AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T20:53:54.183Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "User.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\User.cs",
-              "RelativeDocumentMoniker": "MedLab\\Models\\User.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\User.cs",
-              "RelativeToolTip": "MedLab\\Models\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAWAAAA",
+              "Title": "AppointmentsController.cs",
+              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Controllers\\AppointmentsController.cs",
+              "RelativeDocumentMoniker": "MedLab\\Controllers\\AppointmentsController.cs",
+              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Controllers\\AppointmentsController.cs",
+              "RelativeToolTip": "MedLab\\Controllers\\AppointmentsController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAF8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T20:52:17.415Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "20240813024259_UpdatedIdentity.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813024259_UpdatedIdentity.cs",
-              "RelativeDocumentMoniker": "MedLab\\Data\\Migrations\\20240813024259_UpdatedIdentity.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Data\\Migrations\\20240813024259_UpdatedIdentity.cs",
-              "RelativeToolTip": "MedLab\\Data\\Migrations\\20240813024259_UpdatedIdentity.cs",
-              "ViewState": "AQIAAB8AAAAAAAAAAAAQwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-13T02:43:00.159Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Role.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Constants\\Role.cs",
-              "RelativeDocumentMoniker": "MedLab\\Constants\\Role.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Constants\\Role.cs",
-              "RelativeToolTip": "MedLab\\Constants\\Role.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T23:17:00.544Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\appsettings.json",
-              "RelativeDocumentMoniker": "MedLab\\appsettings.json",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\appsettings.json",
-              "RelativeToolTip": "MedLab\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-08-12T11:04:11.243Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MedLab.csproj",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\MedLab.csproj",
-              "RelativeDocumentMoniker": "MedLab\\MedLab.csproj",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\MedLab.csproj",
-              "RelativeToolTip": "MedLab\\MedLab.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-08-11T23:34:12.4Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Test.cs",
-              "DocumentMoniker": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\Test.cs",
-              "RelativeDocumentMoniker": "MedLab\\Models\\Test.cs",
-              "ToolTip": "P:\\Naresh\\Cdac\\Project\\Major-Project-CDAC\\MedLab\\MedLab\\Models\\Test.cs",
-              "RelativeToolTip": "MedLab\\Models\\Test.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAzAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-11T20:24:57.584Z"
+              "WhenOpened": "2024-08-13T09:55:03.773Z"
             }
           ]
         }

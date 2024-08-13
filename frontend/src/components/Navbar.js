@@ -20,8 +20,8 @@ import { alpha } from "@mui/material/styles";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-import MedLab from "./MedLabIcon";
-import { LOGIN_ROUTE, REGISTER_ROUTE } from "../constants/AppRoutes";
+import MedLabIcon from "./MedLabIcon";
+import { HOME_ROUTE, LOGIN_ROUTE, REGISTER_ROUTE } from "../constants/AppRoutes";
 
 function Navbar() {
   const [open, setOpen] = React.useState(false);
@@ -108,16 +108,26 @@ function Navbar() {
           <Box
             sx={{ flexGrow: 1, display: "flex", alignItems: "center", px: 0 }}
           >
-            <MedLab />
+            <Link
+              to={HOME_ROUTE}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                textDecoration: "none",
+              }}
+            >
+              <MedLabIcon />
+            </Link>
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button
+              {/* <Button
                 variant="text"
                 color="info"
                 size="small"
                 onClick={() => scrollToSection("features")}
               >
                 Features
-              </Button>
+              </Button> */}
+
               <Button
                 variant="text"
                 color="info"
@@ -126,6 +136,7 @@ function Navbar() {
               >
                 Tests
               </Button>
+
               <Button
                 variant="text"
                 color="info"
@@ -134,6 +145,7 @@ function Navbar() {
               >
                 Home Visits
               </Button>
+
               <Button
                 variant="text"
                 color="info"
@@ -142,7 +154,8 @@ function Navbar() {
               >
                 Know your Test
               </Button>
-              <Button
+
+              {/* <Button
                 variant="text"
                 color="info"
                 size="small"
@@ -150,6 +163,7 @@ function Navbar() {
               >
                 Testimonials
               </Button>
+
               <Button
                 variant="text"
                 color="info"
@@ -157,7 +171,7 @@ function Navbar() {
                 onClick={() => scrollToSection("highlights")}
               >
                 Highlights
-              </Button>
+              </Button> */}
               <Button
                 variant="text"
                 color="info"
@@ -166,7 +180,8 @@ function Navbar() {
               >
                 Pricing
               </Button>
-              <Button
+
+              {/* <Button
                 variant="text"
                 color="info"
                 size="small"
@@ -174,7 +189,7 @@ function Navbar() {
                 sx={{ minWidth: 0 }}
               >
                 FAQ
-              </Button>
+              </Button> */}
             </Box>
           </Box>
           <Box
@@ -300,24 +315,31 @@ function Navbar() {
                 <MenuItem onClick={() => scrollToSection("features")}>
                   Features
                 </MenuItem>
+
                 <MenuItem onClick={() => scrollToSection("tests")}>
                   Tests
                 </MenuItem>
+
                 <MenuItem onClick={() => scrollToSection("homeVisits")}>
                   Home Visits
                 </MenuItem>
+
                 <MenuItem onClick={() => scrollToSection("Rx_Upload")}>
                   Know your Test
                 </MenuItem>
+
                 <MenuItem onClick={() => scrollToSection("testimonials")}>
                   Testimonials
                 </MenuItem>
-                <MenuItem onClick={() => scrollToSection("highlights")}>
+
+                {/* <MenuItem onClick={() => scrollToSection("highlights")}>
                   Highlights
-                </MenuItem>
+                </MenuItem> */}
+
                 <MenuItem onClick={() => scrollToSection("pricing")}>
                   Pricing
                 </MenuItem>
+
                 <MenuItem onClick={() => scrollToSection("faq")}>FAQ</MenuItem>
 
                 <MenuItem>
@@ -325,6 +347,7 @@ function Navbar() {
                     Sign up
                   </Button>
                 </MenuItem>
+
                 <MenuItem>
                   <Button color="primary" variant="outlined" fullWidth>
                     Sign in
