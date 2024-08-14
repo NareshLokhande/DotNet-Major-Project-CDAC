@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { ADMIN_DASHBOARD_ROUTE, ADMIN_REPORTS_ROUTE, APPOINTMENTS_ROUTE, CALLBACK_ROUTE, DEPARTMENTS_ROUTE, HOME_ROUTE, HOMEVISITS_ROUTE, LAB_ASSISTANT_DASHBOARD_ROUTE, LAB_ASSISTANTS_ROUTE, LAB_USERS_ROUTE, LOCATIONS_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTER_ROUTE, SAMPLE_TRACKING_ROUTE, UPCOMING_APPOINTMENTS_ROUTE, UPDATE_SAMPLE, UPLOAD_REPORTS_ROUTE, USER_DASHBOARD_ROUTE, USER_REPORTS_ROUTE, USERS_ROUTE } from "./constants/AppRoutes";
+import { ADMIN_DASHBOARD_ROUTE, ADMIN_REPORTS_ROUTE, APPOINTMENTS_ROUTE, CALLBACK_ROUTE, DEPARTMENTS_ROUTE, HOME_ROUTE, HOMEVISITS_ROUTE, LAB_ASSISTANT_DASHBOARD_ROUTE, LAB_ASSISTANTS_ROUTE, LAB_USERS_ROUTE, LOCATIONS_ROUTE, LOGIN_ROUTE, PROFILE_ROUTE, REGISTER_ROUTE, SAMPLE_TRACKING_ROUTE, TESTS_ROUTE, UPCOMING_APPOINTMENTS_ROUTE, UPDATE_SAMPLE, UPLOAD_REPORTS_ROUTE, USER_DASHBOARD_ROUTE, USER_REPORTS_ROUTE, USERS_ROUTE } from "./constants/AppRoutes";
 
 // import { useAuth } from "./pages/Authorization"; // Import useAuth hook
 import Home from "./pages/Home";
@@ -25,6 +25,7 @@ import UpcomingAppointments from "./pages/LabAssistant-Dashboard/UpcomingAppoint
 import UpdateSample from "./pages/LabAssistant-Dashboard/UpdateSample";
 import Callback from "./pages/LabAssistant-Dashboard/Callback";
 import UploadReports from "./pages/LabAssistant-Dashboard/UploadReports";
+import TestsPage from "./components/TestCard";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div style={{ marginTop: "100px" }}>
+      <div style={{ marginTop: "10px" }}>
         <Routes>
           <Route path={HOME_ROUTE} element={<Home />} />
           <Route path={LOGIN_ROUTE} element={<Login />} />
@@ -43,6 +44,7 @@ function App() {
           <Route path={PROFILE_ROUTE} element={<Profile />} />
           <Route path={SAMPLE_TRACKING_ROUTE} element={<SampleTracking />} />
           <Route path={USER_REPORTS_ROUTE} element={<Reports />} />
+          <Route path={TESTS_ROUTE} element={<TestsPage/>} />
 
           <Route
             path={ADMIN_DASHBOARD_ROUTE}

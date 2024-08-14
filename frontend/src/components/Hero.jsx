@@ -9,6 +9,8 @@ import {
 import { styled } from "@mui/material/styles";
 import { APPOINTMENTS_ROUTE } from "../constants/AppRoutes";
 import { Link } from "react-router-dom";
+import Test_Image from "../assets/images/Testing4.jpg"
+
 
 const StyledBox = styled("div")(({ theme }) => ({
   alignSelf: "center",
@@ -18,7 +20,7 @@ const StyledBox = styled("div")(({ theme }) => ({
   borderRadius: theme.shape.borderRadius,
   outline: "1px solid",
   boxShadow: "0 0 12px 8px hsla(220, 25%, 80%, 0.2)",
-  backgroundImage: `url(${"/static/images/templates/templates-images/hero-light.png"})`,
+  backgroundImage: `url(${Test_Image})`,
   outlineColor: "hsla(220, 25%, 80%, 0.5)",
   backgroundSize: "cover",
   [theme.breakpoints.up("sm")]: {

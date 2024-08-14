@@ -10,47 +10,91 @@ import {
   TableHead,
   TableRow,
   Paper,
+  TextField,
+  Modal,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
 } from "@mui/material";
 import axios from "axios";
-import AdminDashboardLayout from "./AdminDashboardlayout"; 
+import AdminDashboardLayout from "./AdminDashboardlayout";
 
 export default function ManageLocations() {
   const [states, setStates] = useState([]);
   const [cities, setCities] = useState([]);
+  const [newStateName, setNewStateName] = useState("");
+  const [newCityName, setNewCityName] = useState("");
+  const [selectedStateId, setSelectedStateId] = useState("");
+  const [openStateModal, setOpenStateModal] = useState(false);
+  const [openCityModal, setOpenCityModal] = useState(false);
 
-  // Fetch states and cities from API
+  // Get State and City
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/states`) // Ensure correct API base URL
+      .get(`${process.env.REACT_APP_API_BASE_URL}/States`)
       .then((response) => setStates(response.data))
       .catch((error) => console.error("Error fetching states:", error));
 
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/cities`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/Cities`)
       .then((response) => setCities(response.data))
       .catch((error) => console.error("Error fetching cities:", error));
   }, []);
 
-  // Handler functions for CRUD operations
-  const handleEditState = (id) => {
-    // Logic for editing state
-    console.log(`Edit state with id: ${id}`);
+  // Create State
+  const handleCreateState = () => {
+    axios
+      .post(`${process.env.REACT_APP_API_BASE_URL}/States`, {
+        stateName: newStateName,
+      })
+      .then((response) => {
+        setStates([...states, response.data]);
+        setNewStateName("");
+        setOpenStateModal(false);
+      })
+      .catch((error) => console.error("Error creating state:", error));
   };
 
-  const handleDeleteState = (id) => {
-    // Logic for deleting state
-    console.log(`Delete state with id: ${id}`);
+  //create City
+  const handleCreateCity = () => {
+    axios
+      .post(`${process.env.REACT_APP_API_BASE_URL}/Cities`, {
+        cityName: newCityName,
+        stateId: selectedStateId,
+      })
+      .then((response) => {
+        setCities([...cities, response.data]);
+        setNewCityName("");
+        setSelectedStateId("");
+        setOpenCityModal(false);
+      })
+      .catch((error) => console.error("Error creating city:", error));
   };
 
-  const handleEditCity = (id) => {
-    // Logic for editing city
-    console.log(`Edit city with id: ${id}`);
-  };
+  // Delete state
+    const handleDeleteState = (id) => {
+      axios
+        .delete(`${process.env.REACT_APP_API_BASE_URL}/States/${id}`)
+        .then(() => {
+          setStates(states.filter((state) => state.stateId !== id));
+        })
+        .catch((error) => console.error("Error deleting state:", error));
+    };
+  // Delete city
+    const handleDeleteCity = (id) => {
+      axios
+        .delete(`${process.env.REACT_APP_API_BASE_URL}/Cities/${id}`)
+        .then(() => {
+          setCities(cities.filter((city) => city.cityId !== id));
+        })
+        .catch((error) => console.error("Error deleting city:", error));
+    };
 
-  const handleDeleteCity = (id) => {
-    // Logic for deleting city
-    console.log(`Delete city with id: ${id}`);
-  };
+  const handleOpenStateModal = () => setOpenStateModal(true);
+  const handleCloseStateModal = () => setOpenStateModal(false);
+  const handleOpenCityModal = () => setOpenCityModal(true);
+  const handleCloseCityModal = () => setOpenCityModal(false);
 
   return (
     <AdminDashboardLayout>
@@ -59,7 +103,23 @@ export default function ManageLocations() {
           Manage Locations
         </Typography>
 
-        <Typography variant="h6" sx={{ mb: 2 }}>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleOpenStateModal}
+        >
+          Add State
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleOpenCityModal}
+          sx={{ ml: 2 }}
+        >
+          Add City
+        </Button>
+
+        <Typography variant="h6" sx={{ mb: 2, mt: 4 }}>
           States
         </Typography>
         <TableContainer component={Paper}>
@@ -72,20 +132,13 @@ export default function ManageLocations() {
             </TableHead>
             <TableBody>
               {states.map((state) => (
-                <TableRow key={state.id}>
-                  <TableCell>{state.name}</TableCell>
+                <TableRow key={state.stateId}>
+                  <TableCell>{state.stateName}</TableCell>
                   <TableCell>
                     <Button
                       variant="contained"
-                      color="primary"
-                      onClick={() => handleEditState(state.id)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="contained"
                       color="error"
-                      onClick={() => handleDeleteState(state.id)}
+                      onClick={() => handleDeleteState(state.stateId)}
                       sx={{ ml: 1 }}
                     >
                       Delete
@@ -111,21 +164,19 @@ export default function ManageLocations() {
             </TableHead>
             <TableBody>
               {cities.map((city) => (
-                <TableRow key={city.id}>
-                  <TableCell>{city.name}</TableCell>
-                  <TableCell>{city.stateName}</TableCell>
+                <TableRow key={city.cityId}>
+                  <TableCell>{city.cityName}</TableCell>
+                  <TableCell>
+                    {
+                      states.find((state) => state.stateId === city.stateId)
+                        ?.stateName
+                    }
+                  </TableCell>
                   <TableCell>
                     <Button
                       variant="contained"
-                      color="primary"
-                      onClick={() => handleEditCity(city.id)}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      variant="contained"
                       color="error"
-                      onClick={() => handleDeleteCity(city.id)}
+                      onClick={() => handleDeleteCity(city.cityId)}
                       sx={{ ml: 1 }}
                     >
                       Delete
@@ -136,6 +187,91 @@ export default function ManageLocations() {
             </TableBody>
           </Table>
         </TableContainer>
+
+        {/* State Creation Modal */}
+        <Modal open={openStateModal} onClose={handleCloseStateModal}>
+          <Box
+            sx={{
+              p: 3,
+              maxWidth: 400,
+              margin: "auto",
+              mt: 10,
+              bgcolor: "white",
+              borderRadius: 2,
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              Add State
+            </Typography>
+            <TextField
+              label="State Name"
+              value={newStateName}
+              onChange={(e) => setNewStateName(e.target.value)}
+              fullWidth
+              sx={{ mb: 2 }}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleCreateState}
+              sx={{ mr: 1 }}
+            >
+              Create
+            </Button>
+            <Button variant="outlined" onClick={handleCloseStateModal}>
+              Cancel
+            </Button>
+          </Box>
+        </Modal>
+
+        {/* City Creation Modal */}
+        <Modal open={openCityModal} onClose={handleCloseCityModal}>
+          <Box
+            sx={{
+              p: 3,
+              maxWidth: 400,
+              margin: "auto",
+              mt: 10,
+              bgcolor: "white",
+              borderRadius: 2,
+            }}
+          >
+            <Typography variant="h6" sx={{ mb: 2 }}>
+              Add City
+            </Typography>
+            <TextField
+              label="City Name"
+              value={newCityName}
+              onChange={(e) => setNewCityName(e.target.value)}
+              fullWidth
+              sx={{ mb: 2 }}
+            />
+            <FormControl fullWidth sx={{ mb: 2 }}>
+              <InputLabel>State</InputLabel>
+              <Select
+                value={selectedStateId}
+                onChange={(e) => setSelectedStateId(e.target.value)}
+              >
+                {states.map((state) => (
+                  <MenuItem key={state.stateId} value={state.stateId}>
+                    {state.stateName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleCreateCity}
+              sx={{ mr: 1 }}
+            >
+              Create
+            </Button>
+            <Button variant="outlined" onClick={handleCloseCityModal}>
+              Cancel
+            </Button>
+          </Box>
+        </Modal>
       </Box>
     </AdminDashboardLayout>
   );

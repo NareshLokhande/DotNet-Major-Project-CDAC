@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import getHomeTheme from "./getHomeTheme";
 import './../assets/css/Home.css';
+import TestsPage from "../components/TestCard";
 
 export default function Home() {
   const mode = "light";
@@ -24,7 +25,10 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Box className="box">
+        <TestsPage />
+        <Divider />
         <LogoCollection />
+        <Divider />
         <Features />
         <Divider />
         <Testimonials />
