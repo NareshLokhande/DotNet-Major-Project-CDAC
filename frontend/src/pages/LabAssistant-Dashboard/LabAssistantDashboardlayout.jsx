@@ -3,11 +3,13 @@ import { Box, Grid, Button, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import {
-  APPOINTMENTS_ROUTE,
-  PROFILE_ROUTE,
-  SAMPLE_TRACKING_ROUTE,
-  REPORTS_ROUTE,
-} from "../constants/AppRoutes";
+  LAB_USERS_ROUTE,
+  HOMEVISITS_ROUTE,
+  UPCOMING_APPOINTMENTS_ROUTE,
+  UPDATE_SAMPLE,
+  UPLOAD_REPORTS_ROUTE,
+  CALLBACK_ROUTE,
+} from "../../constants/AppRoutes";
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.text.primary,
@@ -24,7 +26,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   },
 }));
 
-export default function DashboardLayout({ children }) {
+export default function LabAssistantDashboardLayout({ children }) {
   const navigate = useNavigate();
 
   return (
@@ -40,7 +42,7 @@ export default function DashboardLayout({ children }) {
               color: "primary.main",
             }}
           >
-            Your Dashboard
+            Lab Assistant Dashboard
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -52,17 +54,23 @@ export default function DashboardLayout({ children }) {
               mb: 4,
             }}
           >
-            <StyledButton onClick={() => navigate(PROFILE_ROUTE)}>
+            <StyledButton onClick={() => navigate(LAB_USERS_ROUTE)}>
               Profile
             </StyledButton>
-            <StyledButton onClick={() => navigate(APPOINTMENTS_ROUTE)}>
+            <StyledButton onClick={() => navigate(HOMEVISITS_ROUTE)}>
+              Home Visits
+            </StyledButton>
+            <StyledButton onClick={() => navigate(UPCOMING_APPOINTMENTS_ROUTE)}>
               Appointments
             </StyledButton>
-            <StyledButton onClick={() => navigate(SAMPLE_TRACKING_ROUTE)}>
-              Track Samples
+            <StyledButton onClick={() => navigate(UPDATE_SAMPLE)}>
+              Sample Tracking
             </StyledButton>
-            <StyledButton onClick={() => navigate(REPORTS_ROUTE)}>
-              Reports
+            <StyledButton onClick={() => navigate(UPLOAD_REPORTS_ROUTE)}>
+              Upload Reports
+            </StyledButton>
+            <StyledButton onClick={() => navigate(CALLBACK_ROUTE)}>
+              Callback
             </StyledButton>
           </Box>
         </Grid>
