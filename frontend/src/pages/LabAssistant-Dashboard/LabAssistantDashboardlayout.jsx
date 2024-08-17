@@ -57,9 +57,6 @@ export default function LabAssistantDashboardLayout({ children }) {
             <StyledButton onClick={() => navigate(LAB_USERS_ROUTE)}>
               Profile
             </StyledButton>
-            <StyledButton onClick={() => navigate(HOMEVISITS_ROUTE)}>
-              Home Visits
-            </StyledButton>
             <StyledButton onClick={() => navigate(UPCOMING_APPOINTMENTS_ROUTE)}>
               Appointments
             </StyledButton>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import * as React from "react";
 import {
   Box,
@@ -14,36 +15,44 @@ import {
   Avatar,
   Tooltip,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import SearchIcon from "@mui/icons-material/Search";
 import { alpha, createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import MedLabIcon from "./MedLabIcon";
 import {
   HOME_ROUTE,
   REGISTER_ROUTE,
   LOGIN_ROUTE,
+  USER_DASHBOARD_ROUTE,
+  ADMIN_DASHBOARD_ROUTE,
 } from "../constants/AppRoutes";
 import getHomeTheme from "../pages/getHomeTheme";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import SearchIcon from "@mui/icons-material/Search";
+import { useAuth } from "../context/AuthContext";
+import KnowYourTestModal from "./KnowYourTestModal";
 
 const mode = "light";
 const HomeTheme = createTheme(getHomeTheme(mode));
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 export default function Navbar() {
-  const [open, setOpen] = React.useState(false);
-  const [searchOpen, setSearchOpen] = React.useState(false);
-  const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState([]);
-  const [isSearching, setIsSearching] = React.useState(false);
-  const [userDrawerOpen, setUserDrawerOpen] = React.useState(false);
-  const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Track login state
+  const { isAuthenticated, isAdmin, logout } = useAuth();
+  const [open, setOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearching, setIsSearching] = useState(false);
+  const [userDrawerOpen, setUserDrawerOpen] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
+  
+
+  // const toggleDrawer = (newOpen) => () => {
+  //   setOpen(newOpen);
+  // };
 
   const toggleSearch = () => {
     setSearchOpen(!searchOpen);
@@ -99,21 +108,18 @@ export default function Navbar() {
   };
 
   const handleLogout = () => {
-    // Handle logout logic here
-    setIsLoggedIn(false);
+    if (logout) {
+      logout();
+      setUserDrawerOpen(false);
+      navigate("/login");
+    }
   };
 
-  const handleLogin = () => {
-    // Logic for logging in (e.g., authentication, API call)
-    setIsLoggedIn(true);
+  const handleDashboardNavigation = () => {
+    setUserDrawerOpen(false);
+    navigate(isAdmin ? ADMIN_DASHBOARD_ROUTE : USER_DASHBOARD_ROUTE);
   };
 
-  React.useEffect(() => {
-    // Example logic to check if user is already logged in (e.g., from localStorage or API)
-    // Replace with actual logic to check login state
-    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
-    setIsLoggedIn(loggedIn);
-  }, []);
 
   return (
     <ThemeProvider theme={HomeTheme}>
@@ -162,36 +168,27 @@ export default function Navbar() {
                   variant="text"
                   color="info"
                   size="small"
-                  onClick={() => scrollToSection("tests")}
+                  onClick={() => scrollToSection("Available Tests")}
                 >
                   Tests
                 </Button>
 
-                <Button
+                {/* <Button
                   variant="text"
                   color="info"
                   size="small"
                   onClick={() => scrollToSection("homeVisits")}
                 >
                   Home Visits
-                </Button>
+                </Button> */}
 
                 <Button
                   variant="text"
                   color="info"
                   size="small"
-                  onClick={() => scrollToSection("Rx_Upload")}
+                  onClick={handleOpenModal} // Open the modal
                 >
                   Know your Test
-                </Button>
-
-                <Button
-                  variant="text"
-                  color="info"
-                  size="small"
-                  onClick={() => scrollToSection("pricing")}
-                >
-                  Pricing
                 </Button>
               </Box>
             </Box>
@@ -275,7 +272,7 @@ export default function Navbar() {
                 </Box>
               )}
 
-              {isLoggedIn ? (
+              {isAuthenticated ? (
                 <>
                   <Tooltip title="Open settings">
                     <IconButton onClick={handleOpenUserDrawer} sx={{ p: 0 }}>
@@ -291,61 +288,50 @@ export default function Navbar() {
                   <Button
                     variant="contained"
                     color="primary"
-                    onClick={() => (window.location.href = LOGIN_ROUTE)}
+                    onClick={() => navigate(LOGIN_ROUTE)}
                   >
                     Sign In
                   </Button>
                   <Button
                     variant="contained"
                     color="secondary"
-                    onClick={() => (window.location.href = REGISTER_ROUTE)}
+                    onClick={() => navigate(REGISTER_ROUTE)}
                   >
                     Sign Up
                   </Button>
                 </>
               )}
             </Box>
-
-            <Drawer
-              anchor="right"
-              open={userDrawerOpen}
-              onClose={handleCloseUserDrawer}
-              sx={{ width: 240 }}
-            >
-              <Box
-                sx={{
-                  width: 240,
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                }}
-              >
-                <IconButton
-                  onClick={handleCloseUserDrawer}
-                  sx={{ alignSelf: "flex-end", mt: 2 }}
-                >
-                  <CloseRoundedIcon />
-                </IconButton>
-                <Divider />
-                <Box sx={{ flex: 1 }}>
-                  {settings.map((setting) => (
-                    <MenuItem
-                      key={setting}
-                      onClick={setting === "Logout" ? handleLogout : () => {}}
-                    >
-                      {setting}
-                    </MenuItem>
-                  ))}
-                </Box>
-              </Box>
-            </Drawer>
           </Toolbar>
         </Container>
+
+        <Drawer
+          anchor="right"
+          open={userDrawerOpen}
+          onClose={handleCloseUserDrawer}
+        >
+          <Box sx={{ width: 240 }}>
+            <IconButton onClick={handleCloseUserDrawer}>
+              <CloseRoundedIcon />
+            </IconButton>
+            <Divider />
+            <Box>
+              <MenuItem onClick={handleDashboardNavigation}>Dashboard</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Box>
+          </Box>
+        </Drawer>
+
+        <KnowYourTestModal
+          open={isModalOpen}
+          onClose={handleCloseModal} // Handle modal close
+        />
       </AppBar>
     </ThemeProvider>
   );
 }
 
+// import { useState } from "react";
 // import * as React from "react";
 // import {
 //   Box,
@@ -362,32 +348,36 @@ export default function Navbar() {
 //   Avatar,
 //   Tooltip,
 // } from "@mui/material";
-// import MenuIcon from "@mui/icons-material/Menu";
-// import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-// import SearchIcon from "@mui/icons-material/Search";
 // import { alpha, createTheme, ThemeProvider } from "@mui/material/styles";
-// import { Link } from "react-router-dom";
+// import { Link, useNavigate } from "react-router-dom";
 // import axios from "axios";
 // import MedLabIcon from "./MedLabIcon";
 // import {
 //   HOME_ROUTE,
 //   REGISTER_ROUTE,
 //   LOGIN_ROUTE,
+//   USER_DASHBOARD_ROUTE,
+//   ADMIN_DASHBOARD_ROUTE,
 // } from "../constants/AppRoutes";
 // import getHomeTheme from "../pages/getHomeTheme";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+// import SearchIcon from "@mui/icons-material/Search";
+// import { useAuth } from "../context/AuthContext";
 
 // const mode = "light";
 // const HomeTheme = createTheme(getHomeTheme(mode));
 // const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 // export default function Navbar() {
-//   const [open, setOpen] = React.useState(false);
-//   const [searchOpen, setSearchOpen] = React.useState(false);
-//   const [searchTerm, setSearchTerm] = React.useState("");
-//   const [searchResults, setSearchResults] = React.useState([]);
-//   const [isSearching, setIsSearching] = React.useState(false);
-//   const [userDrawerOpen, setUserDrawerOpen] = React.useState(false);
-//   const [isLoggedIn, setIsLoggedIn] = React.useState(false); // Track login state
+//   const { isAuthenticated, isAdmin, logout } = useAuth();
+//   const [open, setOpen] = useState(false);
+//   const [searchOpen, setSearchOpen] = useState(false);
+//   const [searchTerm, setSearchTerm] = useState("");
+//   const [searchResults, setSearchResults] = useState([]);
+//   const [isSearching, setIsSearching] = useState(false);
+//   const [userDrawerOpen, setUserDrawerOpen] = useState(false);
+//   const navigate = useNavigate();
 
 //   const toggleDrawer = (newOpen) => () => {
 //     setOpen(newOpen);
@@ -447,8 +437,16 @@ export default function Navbar() {
 //   };
 
 //   const handleLogout = () => {
-//     // Handle logout logic here
-//     setIsLoggedIn(false);
+//     if (logout) {
+//       logout();
+//       setUserDrawerOpen(false);
+//       navigate("/login");
+//     }
+//   };
+
+//   const handleDashboardNavigation = () => {
+//     setUserDrawerOpen(false);
+//      navigate(isAdmin ? ADMIN_DASHBOARD_ROUTE: USER_DASHBOARD_ROUTE);
 //   };
 
 //   return (
@@ -498,19 +496,19 @@ export default function Navbar() {
 //                   variant="text"
 //                   color="info"
 //                   size="small"
-//                   onClick={() => scrollToSection("tests")}
+//                   onClick={() => scrollToSection("Available Tests")}
 //                 >
 //                   Tests
 //                 </Button>
 
-//                 <Button
+//                 {/* <Button
 //                   variant="text"
 //                   color="info"
 //                   size="small"
 //                   onClick={() => scrollToSection("homeVisits")}
 //                 >
 //                   Home Visits
-//                 </Button>
+//                 </Button> */}
 
 //                 <Button
 //                   variant="text"
@@ -519,15 +517,6 @@ export default function Navbar() {
 //                   onClick={() => scrollToSection("Rx_Upload")}
 //                 >
 //                   Know your Test
-//                 </Button>
-
-//                 <Button
-//                   variant="text"
-//                   color="info"
-//                   size="small"
-//                   onClick={() => scrollToSection("pricing")}
-//                 >
-//                   Pricing
 //                 </Button>
 //               </Box>
 //             </Box>
@@ -611,7 +600,7 @@ export default function Navbar() {
 //                 </Box>
 //               )}
 
-//               {isLoggedIn ? (
+//               {isAuthenticated ? (
 //                 <>
 //                   <Tooltip title="Open settings">
 //                     <IconButton onClick={handleOpenUserDrawer} sx={{ p: 0 }}>
@@ -627,96 +616,40 @@ export default function Navbar() {
 //                   <Button
 //                     variant="contained"
 //                     color="primary"
-//                     onClick={() => (window.location.href = LOGIN_ROUTE)}
+//                     onClick={() => navigate(LOGIN_ROUTE)}
 //                   >
 //                     Sign In
 //                   </Button>
 //                   <Button
 //                     variant="contained"
 //                     color="secondary"
-//                     onClick={() => (window.location.href = REGISTER_ROUTE)}
+//                     onClick={() => navigate(REGISTER_ROUTE)}
 //                   >
 //                     Sign Up
 //                   </Button>
 //                 </>
 //               )}
 //             </Box>
-
-//             <Box sx={{ display: { sm: "flex", md: "none" } }}>
-//               <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>
-//                 <MenuIcon />
-//               </IconButton>
-
-//               <Drawer anchor="top" open={open} onClose={toggleDrawer(false)}>
-//                 <Box sx={{ p: 2, backgroundColor: "background.default" }}>
-//                   <Box
-//                     sx={{
-//                       display: "flex",
-//                       alignItems: "center",
-//                       justifyContent: "space-between",
-//                     }}
-//                   >
-//                     <Typography variant="h6">Menu</Typography>
-//                     <IconButton onClick={toggleDrawer(false)}>
-//                       <CloseRoundedIcon />
-//                     </IconButton>
-//                   </Box>
-//                   <Divider />
-//                   <MenuItem onClick={() => scrollToSection("tests")}>
-//                     Tests
-//                   </MenuItem>
-//                   <MenuItem onClick={() => scrollToSection("homeVisits")}>
-//                     Home Visits
-//                   </MenuItem>
-//                   <MenuItem onClick={() => scrollToSection("Rx_Upload")}>
-//                     Know your Test
-//                   </MenuItem>
-//                   <MenuItem onClick={() => scrollToSection("pricing")}>
-//                     Pricing
-//                   </MenuItem>
-//                 </Box>
-//               </Drawer>
-//             </Box>
 //           </Toolbar>
 //         </Container>
-//       </AppBar>
 
-//       <Drawer
-//         anchor="right"
-//         open={userDrawerOpen}
-//         onClose={handleCloseUserDrawer}
-//         sx={{ width: 240 }}
-//       >
-//         <Box sx={{ p: 2, width: 240 }}>
-//           <Box
-//             sx={{
-//               display: "flex",
-//               alignItems: "center",
-//               justifyContent: "space-between",
-//               mb: 2,
-//             }}
-//           >
-//             <Typography variant="h6">User Menu</Typography>
+//         <Drawer
+//           anchor="right"
+//           open={userDrawerOpen}
+//           onClose={handleCloseUserDrawer}
+//         >
+//           <Box sx={{ width: 240 }}>
 //             <IconButton onClick={handleCloseUserDrawer}>
 //               <CloseRoundedIcon />
 //             </IconButton>
+//             <Divider />
+//             <Box>
+//               <MenuItem onClick={handleDashboardNavigation}>Dashboard</MenuItem>
+//               <MenuItem onClick={handleLogout}>Logout</MenuItem>
+//             </Box>
 //           </Box>
-//           {settings.map((setting) => (
-//             <MenuItem
-//               key={setting}
-//               onClick={() => {
-//                 if (setting === "Logout") {
-//                   handleLogout();
-//                 } else {
-//                   alert(`${setting} clicked`);
-//                 }
-//               }}
-//             >
-//               {setting}
-//             </MenuItem>
-//           ))}
-//         </Box>
-//       </Drawer>
+//         </Drawer>
+//       </AppBar>
 //     </ThemeProvider>
 //   );
 // }

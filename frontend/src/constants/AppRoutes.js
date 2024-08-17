@@ -1,10 +1,10 @@
 export const HOME_ROUTE="/";
-export const LABS_ROUTE="/labs";
 export const ABOUT_ROUTE="/about";
 export const CART_ROUTE="/cart";
 export const TESTS_ROUTE="/tests";
 export const LOGIN_ROUTE="/login";
 export const REGISTER_ROUTE="/register";
+export const KNOW_YOUR_TEST_ROUTE = "/know-your-test";
 
 //User Dashboard
 export const USER_DASHBOARD_ROUTE = "/user-dashboard";

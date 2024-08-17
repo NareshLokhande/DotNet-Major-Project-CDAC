@@ -1,131 +1,195 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useAuth } from "../../context/AuthContext";
 import {
-  Box,
   TextField,
-  Typography,
   Button,
-  Grid,
-  Card,
-  Avatar,
+  Container,
+  Typography,
+  Box,
+  MenuItem,
+  Select,
+  InputLabel,
+  FormControl,
 } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import UserDashboardLayout from "./UserDashboard";
+import { toast } from "react-toastify";
 
-
-const ProfileCard = styled(Card)(({ theme }) => ({
-  padding: theme.spacing(4),
-  maxWidth: 600,
-  width: "100%",
-  margin: "auto",
-  textAlign: "center",
-}));
-
-export default function Profile() {
-  // State for user profile information
-  const [profile, setProfile] = useState({
-    name: "John Doe",
-    email: "johndoe@example.com",
-    phone: "123-456-7890",
-    address: "123 Main St, City, Country",
-    avatarUrl: "https://i.pravatar.cc/300", // Placeholder for user avatar
+const ProfilePage = () => {
+  const { userID } = useAuth(); // Get the userID from AuthContext
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    stateID: "", 
+    cityID: "", 
   });
+  const [states, setStates] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // State for editing profile fields
-  const [editMode, setEditMode] = useState(false);
+  // Fetch states on component mount
+  useEffect(() => {
+    fetch("https://localhost:7093/api/States")
+      .then((response) => response.json())
+      .then((data) => setStates(data))
+      .catch((error) => console.error("Failed to fetch states:", error));
+  }, []);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setProfile((prevProfile) => ({
-      ...prevProfile,
+  // Fetch cities based on the selected stateID
+  useEffect(() => {
+    if (formData.stateID) {
+      fetch(`https://localhost:7093/api/Cities?stateID=${formData.stateID}`)
+        .then((response) => response.json())
+        .then((data) => setCities(data))
+        .catch((error) => console.error("Failed to fetch cities:", error));
+    }
+  }, [formData.stateID]);
+
+  // Fetch user data based on userID
+  useEffect(() => {
+    if (userID) {
+      fetch(`https://localhost:7093/api/Users/${userID}`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to fetch user data.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setFormData({
+            name: data.name || "",
+            email: data.email || "",
+            phone: data.phone || "",
+            stateID: data.stateID || "", 
+            cityID: data.cityID || "", 
+          });
+          setLoading(false);
+        })
+        .catch((error) => {
+          setError(error.message);
+          setLoading(false);
+        });
+    }
+  }, [userID]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
       [name]: value,
     }));
   };
 
-  const handleEdit = () => {
-    setEditMode(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    fetch(`https://localhost:7093/api/Users/${userID}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to update profile.");
+        }
+        toast.success("Profile updated successfully!");
+      })
+      .catch((error) => {
+        toast.error(`Error: ${error.message}`);
+      });
   };
 
-  const handleSave = () => {
-    setEditMode(false);
-    // Save logic can be implemented here (e.g., API call to update the user's profile)
-  };
+  if (loading) return <Typography>Loading...</Typography>;
+  if (error) return <Typography color="error">{error}</Typography>;
 
   return (
-    <UserDashboardLayout>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
-          mt: 8,
-          mb: 8,
-        }}
-      >
-        <ProfileCard>
-          <Avatar
-            src={profile.avatarUrl}
-            alt={profile.name}
-            sx={{ width: 100, height: 100, margin: "auto", mb: 2 }}
-          />
-          <Typography variant="h5" gutterBottom>
-            Profile
+    <>
+      <UserDashboardLayout />
+      <Container maxWidth="sm">
+        <Box sx={{ mt: 4 }}>
+          <Typography variant="h4" gutterBottom>
+            Profile Page
           </Typography>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Name"
-                name="name"
-                value={profile.name}
+          <form onSubmit={handleSubmit}>
+            <TextField
+              label="Name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+              disabled
+            />
+            <TextField
+              label="Phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              fullWidth
+              margin="normal"
+            />
+
+            {/* State Dropdown */}
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="state-select-label">State</InputLabel>
+              <Select
+                labelId="state-select-label"
+                name="stateID" // Ensure the name matches the stateID key
+                value={formData.stateID} // Use consistent stateID
                 onChange={handleChange}
-                disabled={!editMode}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Email"
-                name="email"
-                value={profile.email}
+                label="State"
+              >
+                {states.map((state) => (
+                  <MenuItem key={state.stateId} value={state.stateId}>
+                    {state.stateName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            {/* City Dropdown */}
+            <FormControl fullWidth margin="normal">
+              <InputLabel id="city-select-label">City</InputLabel>
+              <Select
+                labelId="city-select-label"
+                name="cityID" // Ensure the name matches the cityID key
+                value={formData.cityID} // Use consistent cityID
                 onChange={handleChange}
-                disabled={!editMode}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Phone"
-                name="phone"
-                value={profile.phone}
-                onChange={handleChange}
-                disabled={!editMode}
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                fullWidth
-                label="Address"
-                name="address"
-                value={profile.address}
-                onChange={handleChange}
-                disabled={!editMode}
-              />
-            </Grid>
-          </Grid>
-          <Box mt={4}>
-            {editMode ? (
-              <Button variant="contained" color="primary" onClick={handleSave}>
-                Save Changes
-              </Button>
-            ) : (
-              <Button variant="contained" onClick={handleEdit}>
-                Edit Profile
-              </Button>
-            )}
-          </Box>
-        </ProfileCard>
-      </Box>
-    </UserDashboardLayout>
+                label="City"
+                disabled={!formData.stateID} // Disable city selection if no state is selected
+              >
+                {cities.map((city) => (
+                  <MenuItem key={city.cityId} value={city.cityId}>
+                    {city.cityName}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              fullWidth
+              sx={{ mt: 2 }}
+            >
+              Save Changes
+            </Button>
+          </form>
+        </Box>
+      </Container>
+    </>
   );
-}
+};
+
+export default ProfilePage;

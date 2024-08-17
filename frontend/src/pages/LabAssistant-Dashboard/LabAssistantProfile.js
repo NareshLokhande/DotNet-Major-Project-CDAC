@@ -47,7 +47,6 @@ export default function Profile() {
 
   const handleSave = () => {
     setEditMode(false);
-    // Save logic can be implemented here (e.g., API call to update the user's profile)
   };
 
   return (

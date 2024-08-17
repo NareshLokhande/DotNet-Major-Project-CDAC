@@ -26,18 +26,18 @@ export default function ManageLocations() {
   const [newStateName, setNewStateName] = useState("");
   const [newCityName, setNewCityName] = useState("");
   const [selectedStateId, setSelectedStateId] = useState("");
-  const [openStateModal, setOpenStateModal] = useState(false);
+  const [openStateModal, setOpenStateModal] = useState(false);  
   const [openCityModal, setOpenCityModal] = useState(false);
 
   // Get State and City
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/States`)
+      .get("https://localhost:7093/api/States")
       .then((response) => setStates(response.data))
       .catch((error) => console.error("Error fetching states:", error));
 
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/Cities`)
+      .get("https://localhost:7093/api/Cities")
       .then((response) => setCities(response.data))
       .catch((error) => console.error("Error fetching cities:", error));
   }, []);
@@ -45,7 +45,7 @@ export default function ManageLocations() {
   // Create State
   const handleCreateState = () => {
     axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/States`, {
+      .post("https://localhost:7093/api/States", {
         stateName: newStateName,
       })
       .then((response) => {
@@ -59,7 +59,7 @@ export default function ManageLocations() {
   //create City
   const handleCreateCity = () => {
     axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/Cities`, {
+      .post("https://localhost:7093/api/Cities", {
         cityName: newCityName,
         stateId: selectedStateId,
       })
@@ -75,16 +75,17 @@ export default function ManageLocations() {
   // Delete state
     const handleDeleteState = (id) => {
       axios
-        .delete(`${process.env.REACT_APP_API_BASE_URL}/States/${id}`)
+        .delete(`https://localhost:7093/api/States/${id}`)
         .then(() => {
           setStates(states.filter((state) => state.stateId !== id));
         })
         .catch((error) => console.error("Error deleting state:", error));
     };
+    
   // Delete city
     const handleDeleteCity = (id) => {
       axios
-        .delete(`${process.env.REACT_APP_API_BASE_URL}/Cities/${id}`)
+        .delete(`https://localhost:7093/api/Cities/${id}`)
         .then(() => {
           setCities(cities.filter((city) => city.cityId !== id));
         })
