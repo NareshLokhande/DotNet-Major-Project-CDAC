@@ -131,6 +131,7 @@ function App() {
               <PrivateRoute element={ReportsAndEarnings} requiredRole="ADMIN" />
             }
           />
+
           <Route
             path={LAB_ASSISTANT_DASHBOARD_ROUTE}
             element={
@@ -186,6 +187,9 @@ function App() {
       </div>
     </AuthProvider>
   );
+
+
+  
 }
 
 export default App;

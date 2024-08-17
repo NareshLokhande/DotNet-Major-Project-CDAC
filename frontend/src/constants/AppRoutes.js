@@ -22,7 +22,7 @@ export const USERS_ROUTE = "/users";
 export const ADMIN_REPORTS_ROUTE = "/admin-reports";
 
 //Lab Assistant Dashboard
-export const LAB_ASSISTANT_DASHBOARD_ROUTE = "/labAssistant-dashboard";
+export const LAB_ASSISTANT_DASHBOARD_ROUTE = "/lab-assistant-dashboard";
 export const LAB_USERS_ROUTE = "/lab-users";
 export const HOMEVISITS_ROUTE = "/homevisits";
 export const UPCOMING_APPOINTMENTS_ROUTE = "/upcoming-appointments";

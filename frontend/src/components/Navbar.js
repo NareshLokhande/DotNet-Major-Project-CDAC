@@ -25,6 +25,7 @@ import {
   LOGIN_ROUTE,
   USER_DASHBOARD_ROUTE,
   ADMIN_DASHBOARD_ROUTE,
+  LAB_ASSISTANT_DASHBOARD_ROUTE,
 } from "../constants/AppRoutes";
 import getHomeTheme from "../pages/getHomeTheme";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
@@ -36,7 +37,7 @@ const mode = "light";
 const HomeTheme = createTheme(getHomeTheme(mode));
 
 export default function Navbar() {
-  const { isAuthenticated, isAdmin, logout } = useAuth();
+  const { isAuthenticated, isAdmin, logout, isLabAssistant } = useAuth();
   const [open, setOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -115,10 +116,15 @@ export default function Navbar() {
     }
   };
 
-  const handleDashboardNavigation = () => {
-    setUserDrawerOpen(false);
-    navigate(isAdmin ? ADMIN_DASHBOARD_ROUTE : USER_DASHBOARD_ROUTE);
-  };
+  // const handleDashboardNavigation = () => {
+  //   setUserDrawerOpen(false);
+  //   navigate(isAdmin ? ADMIN_DASHBOARD_ROUTE : USER_DASHBOARD_ROUTE);
+  // };
+
+    const handleDashboardNavigation = () => {
+      setUserDrawerOpen(false);
+      navigate(isAdmin ? ADMIN_DASHBOARD_ROUTE : isLabAssistant ? LAB_ASSISTANT_DASHBOARD_ROUTE : USER_DASHBOARD_ROUTE);
+    };
 
 
   return (

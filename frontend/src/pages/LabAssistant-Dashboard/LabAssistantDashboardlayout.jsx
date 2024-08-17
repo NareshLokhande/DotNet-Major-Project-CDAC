@@ -4,7 +4,6 @@ import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import {
   LAB_USERS_ROUTE,
-  HOMEVISITS_ROUTE,
   UPCOMING_APPOINTMENTS_ROUTE,
   UPDATE_SAMPLE,
   UPLOAD_REPORTS_ROUTE,
