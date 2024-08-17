@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import {
   APPOINTMENTS_ROUTE,
   PROFILE_ROUTE,
-  SAMPLE_TRACKING_ROUTE,
   USER_REPORTS_ROUTE,
 } from "../../constants/AppRoutes";
 
@@ -57,9 +56,6 @@ export default function DashboardLayout({ children }) {
             </StyledButton>
             <StyledButton onClick={() => navigate(APPOINTMENTS_ROUTE)}>
               Appointments
-            </StyledButton>
-            <StyledButton onClick={() => navigate(SAMPLE_TRACKING_ROUTE)}>
-              Track Samples
             </StyledButton>
             <StyledButton onClick={() => navigate(USER_REPORTS_ROUTE)}>
               Reports

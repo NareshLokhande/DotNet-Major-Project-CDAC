@@ -15,7 +15,7 @@ import UserDashboardLayout from "./UserDashboard";
 import { toast } from "react-toastify";
 
 const ProfilePage = () => {
-  const { userID } = useAuth(); // Get the userID from AuthContext
+  const { userID } = useAuth();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -83,12 +83,22 @@ const ProfilePage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const dataToSend = {
+      name: formData.name,
+      cityID: formData.cityID,
+      phone: formData.phone,
+      stateID: formData.stateID,
+    };
+    console.log("Data being sent to the API:", dataToSend);
+
+
     fetch(`https://localhost:7093/api/Users/${userID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(dataToSend),
     })
       .then((response) => {
         if (!response.ok) {
@@ -144,8 +154,8 @@ const ProfilePage = () => {
               <InputLabel id="state-select-label">State</InputLabel>
               <Select
                 labelId="state-select-label"
-                name="stateID" // Ensure the name matches the stateID key
-                value={formData.stateID} // Use consistent stateID
+                name="stateID"
+                value={formData.stateID} 
                 onChange={handleChange}
                 label="State"
               >
@@ -162,11 +172,11 @@ const ProfilePage = () => {
               <InputLabel id="city-select-label">City</InputLabel>
               <Select
                 labelId="city-select-label"
-                name="cityID" // Ensure the name matches the cityID key
-                value={formData.cityID} // Use consistent cityID
+                name="cityID" 
+                value={formData.cityID} 
                 onChange={handleChange}
                 label="City"
-                disabled={!formData.stateID} // Disable city selection if no state is selected
+                disabled={!formData.stateID} 
               >
                 {cities.map((city) => (
                   <MenuItem key={city.cityId} value={city.cityId}>
