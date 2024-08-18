@@ -49,17 +49,17 @@ To set up MedLab on your local machine, follow these steps:
 
 
 ## Usage
-Access the Dashboard
+1. **Access the Dashboard**
 
-Open your web browser and navigate to http://localhost:3000 to access the main dashboard.
+    Open your web browser and navigate to http://localhost:3000 to access the main dashboard.
 
-Manage Tests and Results
+2. **Manage Tests and Results**
 
-Use the user interface to add, edit, and view lab tests and results. Navigate through the various sections to update patient records as needed.
+    Use the user interface to add, edit, and view lab tests and results. Navigate through the various sections to update patient records as needed.
 
-Generate Reports
+3. **Generate Reports**
 
-Go to the Reports section to generate and export data reports. Customize your reports based on test types, date ranges, and other criteria.
+    Go to the Reports section to generate and export data reports. Customize your reports based on test types, date ranges, and other criteria.
 
 ## API Reference
 For detailed information on the API endpoints, refer to the API Documentation. This documentation provides specifics on the available endpoints, request formats, and response structures.
@@ -69,7 +69,7 @@ We welcome contributions from the community! To contribute to MedLab, please fol
 
 1. **Fork the Repository**
 
-Click the "Fork" button on the GitHub repository page to create a personal copy of the repository.
+    Click the "Fork" button on the GitHub repository page to create a personal copy of the repository.
 
 2. **Create a Feature Branch**
 
@@ -78,7 +78,7 @@ Click the "Fork" button on the GitHub repository page to create a personal copy 
 
 3. **Make Your Changes**
 
-Make the necessary changes in your feature branch.
+    Make the necessary changes in your feature branch.
 
 4. **Commit Your Changes**
 
