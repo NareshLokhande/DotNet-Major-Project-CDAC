@@ -68,8 +68,8 @@ export default function SignUp() {
 
     const endpoint =
       role === "LABASSISTANT"
-        ? "https://localhost:7093/api/Auth/register-lab-assistant"
-        : "https://localhost:7093/api/Auth/register-patient";
+        ? `${process.env.REACT_APP_API_BASE_URL}/Auth/register-lab-assistant`
+        : `${process.env.REACT_APP_API_BASE_URL}/Auth/register-patient`;
 
     try {
       const response = await fetch(

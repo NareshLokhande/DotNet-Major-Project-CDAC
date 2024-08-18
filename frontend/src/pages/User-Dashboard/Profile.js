@@ -30,7 +30,7 @@ const ProfilePage = () => {
 
   // Fetch states on component mount
   useEffect(() => {
-    fetch("https://localhost:7093/api/States")
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/States`)
       .then((response) => response.json())
       .then((data) => setStates(data))
       .catch((error) => console.error("Failed to fetch states:", error));
@@ -39,7 +39,9 @@ const ProfilePage = () => {
   // Fetch cities based on the selected stateID
   useEffect(() => {
     if (formData.stateID) {
-      fetch(`https://localhost:7093/api/Cities?stateID=${formData.stateID}`)
+      fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/Cities?stateID=${formData.stateID}`
+      )
         .then((response) => response.json())
         .then((data) => setCities(data))
         .catch((error) => console.error("Failed to fetch cities:", error));
@@ -49,7 +51,7 @@ const ProfilePage = () => {
   // Fetch user data based on userID
   useEffect(() => {
     if (userID) {
-      fetch(`https://localhost:7093/api/Users/${userID}`)
+      fetch(`${process.env.REACT_APP_API_BASE_URL}/Users/${userID}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Failed to fetch user data.");
@@ -61,8 +63,8 @@ const ProfilePage = () => {
             name: data.name || "",
             email: data.email || "",
             phone: data.phone || "",
-            stateID: data.stateID || "", 
-            cityID: data.cityID || "", 
+            stateID: data.stateID || "",
+            cityID: data.cityID || "",
           });
           setLoading(false);
         })
@@ -93,7 +95,7 @@ const ProfilePage = () => {
     console.log("Data being sent to the API:", dataToSend);
 
 
-    fetch(`https://localhost:7093/api/Users/${userID}`, {
+    fetch(`${process.env.REACT_APP_API_BASE_URL}/Users/${userID}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

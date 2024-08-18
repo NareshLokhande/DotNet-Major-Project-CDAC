@@ -9,7 +9,7 @@ export default function Reports() {
   useEffect(() => {
     
     axios
-      .get("https://localhost:7093/api/reports")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/reports`)
       .then((response) => {
         setReports(response.data);
       })

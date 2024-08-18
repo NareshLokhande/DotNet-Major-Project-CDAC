@@ -1,16 +1,16 @@
 package com.medlab.service;
 
-import com.medlab.config.UserDetailsImpl;
-import com.medlab.models.User;
-import com.medlab.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.medlab.models.User;
+import com.medlab.repository.UserRepository;
+
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class MyUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -18,7 +18,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("User Not Found with email: " + email));
-        return UserDetailsImpl.build(user);
+                .orElseThrow(() -> new UsernameNotFoundException("User not found with email: " + email));
+        return user;
     }
+
+	
 }

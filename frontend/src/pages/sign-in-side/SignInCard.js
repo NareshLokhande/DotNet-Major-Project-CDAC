@@ -29,7 +29,7 @@ const Card = styled(MuiCard)(({ theme }) => ({
 }));
 
 export default function SignInCard() {
-  const { login } = useAuth(); // Use the authentication context
+  const { login } = useAuth(); 
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

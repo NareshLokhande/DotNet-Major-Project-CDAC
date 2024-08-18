@@ -87,10 +87,16 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.cdac</groupId>
-			<artifactId>library-Management</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <optional>true</optional>
+    	</dependency>
+    	<dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <scope>runtime</scope>
+    </dependency>
+		
 	</dependencies>
 
 	<build>

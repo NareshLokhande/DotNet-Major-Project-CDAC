@@ -76,7 +76,7 @@ export default function Navbar() {
   const fetchSearchResults = async (query) => {
     try {
       const response = await axios.get(
-        `https://localhost:7150/api/tests?q=${query}`
+        `${process.env.REACT_APP_API_BASE_URL}/tests?q=${query}`
       );
       setSearchResults(response.data);
       setIsSearching(false);
@@ -410,7 +410,7 @@ export default function Navbar() {
 //   const fetchSearchResults = async (query) => {
 //     try {
 //       const response = await axios.get(
-//         `https://localhost:7150/api/tests?q=${query}`
+//         `${process.env.REACT_APP_API_BASE_URL}/tests?q=${query}`
 //       );
 //       setSearchResults(response.data);
 //       setIsSearching(false);
@@ -727,7 +727,7 @@ export default function Navbar() {
 //   const fetchSearchResults = async (query) => {
 //     try {
 //       const response = await axios.get(
-//         `https://localhost:7150/api/tests?q=${query}`
+//         `${process.env.REACT_APP_API_BASE_URL}/tests?q=${query}`
 //       );
 //       setSearchResults(response.data);
 //       setIsSearching(false);
@@ -1067,7 +1067,7 @@ export default function Navbar() {
 //   const fetchSearchResults = async (query) => {
 //     try {
 //       const response = await axios.get(
-//         `https://localhost:7150/api/tests?q=${query}`
+//         `${process.env.REACT_APP_API_BASE_URL}/tests?q=${query}`
 //       );
 //       setSearchResults(response.data);
 //       setIsSearching(false);

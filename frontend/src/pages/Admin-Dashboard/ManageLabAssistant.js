@@ -27,7 +27,7 @@ export default function ManageLabAssistants() {
   // Fetch all users from API
   useEffect(() => {
     axios
-      .get("https://localhost:7093/api/Users")
+      .get(`${process.env.REACT_APP_API_BASE_URL}/Users`)
       .then((response) => {
         if (Array.isArray(response.data)) {
           setLabAssistants(response.data);
@@ -51,7 +51,7 @@ export default function ManageLabAssistants() {
 
   const handleDeleteLabAssistant = (id) => {
     axios
-      .delete(`https://localhost:7093/api/Users/${id}`)
+      .delete(`${process.env.REACT_APP_API_BASE_URL}/Users/${id}`)
       .then(() => {
         setLabAssistants(
           labAssistants.filter((assistant) => assistant.id !== id)
@@ -63,7 +63,7 @@ export default function ManageLabAssistants() {
   const handleSaveEdit = () => {
     axios
       .put(
-        `https://localhost:7093/api/Users/${selectedAssistant.id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/Users/${selectedAssistant.id}`,
         selectedAssistant
       )
       .then(() => {
@@ -194,198 +194,3 @@ export default function ManageLabAssistants() {
     </AdminDashboardLayout>
   );
 }
-
-// import React, { useState, useEffect } from "react";
-// import {
-//   Box,
-//   Typography,
-//   Button,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Paper,
-// } from "@mui/material";
-// import axios from "axios";
-// import AdminDashboardLayout from "./AdminDashboardlayout";
-
-// export default function ManageLabAssistants() {
-//   const [labAssistants, setLabAssistants] = useState([]);
-
-//   // Fetch all users from API
-//   useEffect(() => {
-//     axios
-//       .get("https://localhost:7093/api/Users") // Fetch all users
-//       .then((response) => {
-//         // Check if response data is an array
-//         if (Array.isArray(response.data)) {
-//           setLabAssistants(response.data);
-//         } else {
-//           console.error("Unexpected response format:", response.data);
-//         }
-//       })
-//       .catch((error) => console.error("Error fetching users:", error));
-//   }, []);
-
-//   // Filter lab assistants based on role number
-//   const filteredLabAssistants = labAssistants.filter(
-//     (assistant) => assistant.role === 3 // Assuming 2 corresponds to LABASSISTANT
-//   );
-
-//   // Handler functions for CRUD operations
-//   const handleEditLabAssistant = (id) => {
-//     console.log(`Edit lab assistant with id: ${id}`);
-//   };
-
-//   const handleDeleteLabAssistant = (id) => {
-//     console.log(`Delete lab assistant with id: ${id}`);
-//   };
-
-//   return (
-//     <AdminDashboardLayout>
-//       <Box sx={{ p: 3 }}>
-//         <Typography variant="h4" sx={{ mb: 4 }}>
-//           Manage Lab Assistants
-//         </Typography>
-
-//         <TableContainer component={Paper}>
-//           <Table>
-//             <TableHead>
-//               <TableRow>
-//                 <TableCell>Name</TableCell>
-//                 <TableCell>Email</TableCell>
-//                 <TableCell>Department</TableCell>
-//                 <TableCell>Actions</TableCell>
-//               </TableRow>
-//             </TableHead>
-//             <TableBody>
-//               {filteredLabAssistants.length > 0 ? (
-//                 filteredLabAssistants.map((assistant) => (
-//                   <TableRow key={assistant.id}>
-//                     <TableCell>{assistant.name}</TableCell>
-//                     <TableCell>{assistant.email}</TableCell>
-//                     <TableCell>{assistant.department}</TableCell>
-//                     <TableCell>
-//                       <Button
-//                         variant="contained"
-//                         color="primary"
-//                         onClick={() => handleEditLabAssistant(assistant.id)}
-//                       >
-//                         Edit
-//                       </Button>
-//                       <Button
-//                         variant="contained"
-//                         color="error"
-//                         onClick={() => handleDeleteLabAssistant(assistant.id)}
-//                         sx={{ ml: 1 }}
-//                       >
-//                         Delete
-//                       </Button>
-//                     </TableCell>
-//                   </TableRow>
-//                 ))
-//               ) : (
-//                 <TableRow>
-//                   <TableCell colSpan={4} align="center">
-//                     No lab assistants found.
-//                   </TableCell>
-//                 </TableRow>
-//               )}
-//             </TableBody>
-//           </Table>
-//         </TableContainer>
-//       </Box>
-//     </AdminDashboardLayout>
-//   );
-// }
-
-// import React, { useState, useEffect } from "react";
-// import {
-//   Box,
-//   Typography,
-//   Button,
-//   Table,
-//   TableBody,
-//   TableCell,
-//   TableContainer,
-//   TableHead,
-//   TableRow,
-//   Paper,
-// } from "@mui/material";
-// import axios from "axios";
-// import AdminDashboardLayout from "./AdminDashboardlayout";
-
-// export default function ManageLabAssistants() {
-//   const [labAssistants, setLabAssistants] = useState([]);
-
-//   // Fetch lab assistants from API
-//   useEffect(() => {
-//     axios
-//       .get("https://localhost:7093/api/Users")
-//       .then((response) => setLabAssistants(response.data))
-//       .catch((error) => console.error("Error fetching lab assistants:", error));
-//   }, []);
-
-//     const filteredLabAssistants = labAssistants.filter(
-//       (assistant) => assistant.role === "LABASSISTANT"
-//     );
-//   // Handler functions for CRUD operations
-//   const handleEditLabAssistant = (id) => {
-//     console.log(`Edit lab assistant with id: ${id}`);
-//   };
-
-//   const handleDeleteLabAssistant = (id) => {
-//     console.log(`Delete lab assistant with id: ${id}`);
-//   };
-
-//   return (
-//     <AdminDashboardLayout>
-//       <Box sx={{ p: 3 }}>
-//         <Typography variant="h4" sx={{ mb: 4 }}>
-//           Manage Lab Assistants
-//         </Typography>
-
-//         <TableContainer component={Paper}>
-//           <Table>
-//             <TableHead>
-//               <TableRow>
-//                 <TableCell>Name</TableCell>
-//                 <TableCell>Email</TableCell>
-//                 <TableCell>Department</TableCell>
-//                 <TableCell>Actions</TableCell>
-//               </TableRow>
-//             </TableHead>
-//             <TableBody>
-//               {filteredLabAssistants.map((assistant) => (
-//                 <TableRow key={assistant.id}>
-//                   <TableCell>{assistant.name}</TableCell>
-//                   <TableCell>{assistant.email}</TableCell>
-//                   <TableCell>{assistant.department}</TableCell>
-//                   <TableCell>
-//                     <Button
-//                       variant="contained"
-//                       color="primary"
-//                       onClick={() => handleEditLabAssistant(assistant.id)}
-//                     >
-//                       Edit
-//                     </Button>
-//                     <Button
-//                       variant="contained"
-//                       color="error"
-//                       onClick={() => handleDeleteLabAssistant(assistant.id)}
-//                       sx={{ ml: 1 }}
-//                     >
-//                       Delete
-//                     </Button>
-//                   </TableCell>
-//                 </TableRow>
-//               ))}
-//             </TableBody>
-//           </Table>
-//         </TableContainer>
-//       </Box>
-//     </AdminDashboardLayout>
-//   );
-// }
