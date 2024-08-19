@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/users") // General user management endpoint
+@RequestMapping("/api/users") 
 public class UserController {
 
     @Autowired

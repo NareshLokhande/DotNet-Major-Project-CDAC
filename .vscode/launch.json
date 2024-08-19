@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-MedLabApplication<MedLab>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.medlab.MedLabApplication",
+            "projectName": "MedLab",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

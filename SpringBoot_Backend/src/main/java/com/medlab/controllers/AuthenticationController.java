@@ -56,7 +56,7 @@ public class AuthenticationController {
     @PostMapping("/register-patient")
     public ResponseEntity<String> registerUser(@RequestBody User user) {
         if (userService.userExists(user.getEmail())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists"); // Return 409 status code
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("User already exists"); 
         }
 
         // Save the new user (this will handle password encoding in the service layer)

@@ -7,7 +7,7 @@ import jakarta.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.medlab.constance.Role;
+import com.medlab.constants.Role;
 
 import java.util.ArrayList;
 import java.util.Collection;

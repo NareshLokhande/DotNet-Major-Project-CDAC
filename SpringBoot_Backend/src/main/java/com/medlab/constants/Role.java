@@ -1,4 +1,4 @@
-package com.medlab.constance;
+package com.medlab.constants;
 
 public enum Role {
 	ADMIN,

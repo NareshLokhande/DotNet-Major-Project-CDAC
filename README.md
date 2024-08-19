@@ -26,7 +26,7 @@ To set up MedLab on your local machine, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/NareshLokhande/medlab.git
+   git clone https://github.com/NareshLokhande/Major-Project-CDAC.git
 
 2. **Navigate to the Project Directory**
 
@@ -87,10 +87,8 @@ We welcome contributions from the community! To contribute to MedLab, please fol
 
 5.  **Create a Pull Request**
 
-    Go to the GitHub repository and submit a pull request describing your changes. Provide a clear description and reasoning for the modifications.
+    Go to the [GitHub repositoyr page](https://github.com/NareshLokhande/Major-Project-CDAC.git) and submit a pull request describing your changes. Provide a clear description and reasoning for the modifications.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Contact
-For questions, support, or feedback, please reach out to us at support@medlab.com.
+For questions, support, or feedback, please reach out to us at nareshlokhande49@gmail.com.

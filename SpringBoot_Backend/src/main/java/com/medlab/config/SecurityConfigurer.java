@@ -5,8 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,9 +23,9 @@ public class SecurityConfigurer {
     private final MyUserDetailsService myUserDetailsService;
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    public SecurityConfigurer(JwtRequestFilter jwtRequestFilter, 
-                              MyUserDetailsService myUserDetailsService, 
-                              JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint) {
+    public SecurityConfigurer(JwtRequestFilter jwtRequestFilter,
+            MyUserDetailsService myUserDetailsService,
+            JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint) {
         this.jwtRequestFilter = jwtRequestFilter;
         this.myUserDetailsService = myUserDetailsService;
         this.jwtAuthenticationEntryPoint = jwtAuthenticationEntryPoint;
@@ -35,34 +34,32 @@ public class SecurityConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeHttpRequests(authorizeRequests -> authorizeRequests
-                    .requestMatchers("/api/auth/register", "/api/auth/login").permitAll()  // Allow these endpoints
-                    .anyRequest().authenticated()  // All other endpoints require authentication
-            )
-            .exceptionHandling()
-                .authenticationEntryPoint(jwtAuthenticationEntryPoint)  // Handle unauthorized access
-            .and()
-            .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);  // No session is created
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/auth/register-patient", "/api/auth/login").permitAll()
+                        .anyRequest().authenticated())
+                .exceptionHandling()
+                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-        // Add JWT filter before the UsernamePasswordAuthenticationFilter
         http.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
+        AuthenticationManagerBuilder authenticationManagerBuilder = http
+                .getSharedObject(AuthenticationManagerBuilder.class);
+        authenticationManagerBuilder
+                .userDetailsService(myUserDetailsService)
+                .passwordEncoder(passwordEncoder());
+        return authenticationManagerBuilder.build();
     }
 
     @Bean
-    public AuthenticationManager authenticationManager(HttpSecurity http) throws Exception {
-        AuthenticationManagerBuild authenticationManagerBuilder = 
-                new AuthenticationManagerBuilder(http.getSharedObject(AuthenticationConfiguration.class));
-        authenticationManagerBuilder
-            .userDetailsService(myUserDetailsService)
-            .passwordEncoder(passwordEncoder());
-        return authenticationManagerBuilder.build();
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
